@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <script>
+         var zmienna;
+         zmienna=6;  //słowo kluczowe zmiennej o nazwie zmienna 
+         var liczba = 67;  //deklaracja i inicjalizacji
+        document.write(zmienna);
+
+        //TYPY DANYCH
+        var calkowita = 68;     //wartosci liczbowe sa wprowadzane bez cudzyslowia , natomast  zmiennne tekstowe sa wprowadzane w cudzyslowie 
+        var zmiennoprzecinkowa = 5.8;    // kropka jako separator przecinka 
+        var tekstowa = "to jest zmienna tekstowa"; // tekst w cudzysłowie 
+        var zmiennalogiczna = true;
+        var znakowa = 'g'; //jest to zmienna tekstowa 
+        var pusta = null; //wartosc zawierajaca null
+
+
+        // W JS jest możliwa zmiana typu zmiennej bez rzutowania
+        tekstowa = 56;
+        document.write(tekstowa);
+
+        //Opertatory 
+        /*
+        = operator przypisania
+        + operator dodania
+        - operator odejmowania
+        * operator mnozenia
+        / operator dzielenia 
+        % operator dzielenia modulo (zwraca reszte z dzielenia)
+        */
+        var x=7;
+        var y=5;
+        var z=2;
+        var suma= x+y;
+        document.write('<br>');
+        document.write(suma);
+        var roznica = x-z;
+        document.write('<br>');
+        document.write(roznica);
+        // W Java Script następuję autmoatyczna poprawność wykonywania kolejności działań
+        var iloraz = z/0;
+        document.write('<br>');
+        document.write(iloraz);
+
+        var dzielenieModulo = x%y;
+        document.write('<br>');
+        document.write(dzielenieModulo);
+
+        var teskt1 ="Ala ma ";
+        var tekst2 = "Covida";
+        var zlaczonytekst = teskt1 + tekst2;
+        document.write('<br>');
+        document.write(zlaczonytekst);
+         
+
+        //Kolejność wykonywania zadań
+        var wynik = 2 + 2 * 2;
+        document.write('<hr>');
+        document.write(wynik);
+
+        document.write('<hr>');
+
+        //operatory inkrementacji oraz dekrementacji
+        // ++ operator implementacji
+        // -- operator dekrementacji
+        var a = 6;
+    
+        document.write(a++);
+        document.write('<br><hr>');
+        document.write(a);
+        document.write('<hr>');
+        var b = 60;
+        document.write(++b); //najpierw jest zwiększana wartość zmiennej , a  nastepnię pozostaje wykorzystana 
+        document.write('<hr>');
+
+        //operator negacji - !
+        var logiczna = true;
+        document.write(!logiczna);
+        document.write('<hr>');
+
+        //operatory przypisania 
+        /* 
+         = operator przypisania 
+         += operator przypisania zwiększonej wartośći
+         -= zmniejszonej 
+         *= zwielokrotnieonej
+         /= podzielonej
+        */
+         
+        var x = 7;
+        x += 10; // zwiększenie wartości zmiennnej x o 10
+        //x = x +10; - operacja równoważna powyższej
+        document.write(x);
+        document.write('<br>');
+        var y = 20;
+        y -= 6; //zmniejszenie wartosci zmiennej y o 6
+        document.write(y);
+        document.write('<br>');
+
+        var z = 5;
+        z *= 7; //zwielokrotnienie wartośći zmiennej z 7-krotnie 
+        document.write(z);
+        document.write('<br>');
+
+        var t = 90;
+        t /= 9; //zmniejszenie wartosci zmiennej t 9-krotnie 
+        document.write(t);
+        document.write('<hr>');
+        document.write('<br>');
+        // operator ciągu - operator konkatencji czyli połączenia ciągów znakowych
+
+        var tekst10 = "kot";
+        var tekst11 = "ek";
+        var polaczony = tekst10 + tekst11;
+        document.write(polaczony);
+
+        document.write('<hr>');
+        // rzutowanie === parsowanie === konwersja typów danych   - niejawne 
+        var l = 50;
+        var t = "30";
+        document.write(l+ t);
+        document.write('<br>');
+        document.write(l + parseInt(t));  //jawna  konwersja typu tekstowego na liczbę 
+        document.write('<hr>'); // W JS istnieje prosty mechanizm rzutowania typów danych, za to odpowiedzialne są funckje rozpoczynające się od słowa parse 
+
+        /*
+        parseInt() - rzutowanie na typ liczbowy całkowity
+        parseFloat() - rzutowanie na liczbę zmiennoprzecinkową 
+        */
+       document.write('<hr>');
+       var imie ="100Ala";
+       imie = parseInt(imie);   // NaN - Not a Number
+       document.write(imie);
+
+
+       // funkcja sprawdzajaca czy wartosc zmiennej jest liczba : isNaN()
+       //Zwaraca jeżeli wartość nie jest liczbą
+       document.write('<br>');
+       document.write(TreeWalker);
+       document.write('<hr>');
+        
+        //operatory logiczne 
+        /*
+            zwracają prawdę lub fałsz , są one używane do budowania zdań logicznych 
+            < mniejsze 
+            > większe 
+            <= mniejsze lub równe 
+            >= większe lub równe 
+            === identyczne ( sprawdza nie tylko wartości ale jeszcze typ danych)
+            == równe 
+            && i      koniunkcja  ( połączenie zdań logicznych w zdania złożone )
+            || lub 
+
+        */
+
+        document.write(8 == 9 && 78 > 78 && 90 <= 213 );
+
+     </script>
+</body>
+</html>

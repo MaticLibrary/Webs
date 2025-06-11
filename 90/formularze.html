@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORMULARZE</title>
+</head>
+<body>
+    <!-- 
+        FORMULARZ 
+        forma elektronicznej ankiety ,wypelniamy na stronie internetowej
+        wprowadzanie tekstu,danych wszelkiego rodzaju, odpowiadnaie na pytania
+        zaznaczanie odpowiedzi itp. przeważnie dane z formularza są przesyłane na serwer
+        i obsługiwane przez skrypty.
+
+        WSTAWIANIE FORMULARZA 
+        <from> - znacznik kontenerowy 
+        ATRYBUTY 
+        -action - wskazuje na cel wyslania danych (dowolny plik umieszczony na serwerze)
+        -method - wskazanie metody , przeslania danych : POST and  GET
+
+            Pola Formularzy
+        <intput>- nie posiada znacznika zamykającego
+        Domyślnie bez podania typi powstaje pole tekstowe
+
+
+        ATRYYBUTY
+            TYPE
+                Pozwala wybrac jakiego typu bdzie pole.
+                PRZYKŁADY text,number,hidden,radio, checkbox. 
+            NAME
+                Nadaje polu konktretną nazwe
+            VALUE
+                Wartość
+            PLACEHPDLER
+                Informacja wyswietlana w polu
+            MAXLENGTH
+                długosc ciagów
+            READONLY
+                tylko do odczytu - pole jest zablokowane do edycji
+            DISABLED
+                Pole zablokowane -brak mozliwosci edycji 
+                Dane z tego pola nie sa wysylane razem z formularzem
+            TABINDEX
+                Decyduje o kolejnosci przechodzenia miedzy polami za pomoca klawisza TAB.
+                Wartosci liczbowe 
+    ====================================
+
+    ETYKIETY PÓŁ FORMULARZA
+            Stworzenie etykiety umozliwia znacznik <label>. 0 przynaleznosc etykiety decyduje 
+            atrybut FOR
+    
+    
+    -->
+   <form action="" method="POST">
+    <input type="text" name="imie" value="wprowadz imie " size="30" >
+<input tabindex="1">
+<input tabindex="2">
+<input tabindex="4">
+   </form>
+<hr>
+<form action="" method="POST">
+    <input type="text" name="wiek" value="18" maxlength="2" >
+</form>
+<hr>
+<form action="" method="POST">
+    <input type="text" name="rok" value="2022" maxlength="4" DISABLED >
+</form>
+<hr>
+<form action="" method="POST">
+    <input type="text" name="IP" value="addresIp" maxlength="15" PLACEHPDLER="ADDRES IP">
+</form>
+
+</body>
+</html>

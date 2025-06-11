@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detektory4</title>
+</head>
+<body>
+
+    <!--    
+        ONRESIZE - detektor wykrywający zmianę rozmariu okna przeglądarki
+        WłASNOŚCi:
+        -   innerWidth  -   wewnętrzna szerokość okna
+        -   innerHeight -   wewnętrzna wysokość okna
+        -   outerWidth  -   zewnętrzna szerokość okna
+        -   outerHeight -   zewnętrzna wysokość okna
+
+        WŁASNOŚCI elementów:
+        -   offsetWidth -   wyliczona szerokość elementu
+        -   offsetHeight    -   wyliczona wysokość elementu
+
+
+    -->
+    <style>
+        #kwadrat{
+            height: 300px;
+            width: 200px;
+            background-color:fuchsia ;
+            color: whitesmoke;
+            font-size: 20px;
+            position: absolute;
+        }
+    </style>
+    <div id="wymiary"></div>
+    <script>
+
+        function policzWymiary(){
+        var szerWe = window.innerWidth;
+        var szerZew = window.outerWidth;
+        var wysWe = window.innerHeight;
+        var wysZew = window.outerHeight;
+        var w = document.getElementById('wymiary');
+        w.innerHTML = "/ szer. wew.: = " + szerWe;
+        w.innerHTML += "/ szer. zew.: = " + szerZew;
+        w.innerHTML += "/ wys. wew.: = " + wysWe;
+        w.innerHTML += " /wys. zew.: = " + wysZew;
+        }
+
+    
+
+        policzWymiary();
+        window.onresize = policzWymiary;
+
+    </script>
+    <!--    
+        Cwiczenie 1:
+        Utworz element z dowolną ilością tekstu o szerokosci 300px. Wypozycjonuj ten element na środku ekranu w poziomie i pionie 
+        i zachowuj pozycje w trakcie zmiany wielkosci okna przeglądarki
+
+
+    -->
+
+    <style>
+        #dif {
+          width: 300px;
+          background-color: bisque;
+          position: absolute;
+        }
+      </style>
+    
+      <div id="dif">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos dolor dicta repudiandae a voluptas minima delectus dolorem ex veniam, optio pariatur voluptates rem ipsum commodi voluptatem hic, cumque facere non.</div>
+    
+      <script>
+        
+        var elem = document.getElementById('dif');
+        function pozycjonuj() {
+          let szOkna = window.innerWidth;
+          let wOkna = window.innerHeight;
+          let szTekstu = elem.offsetWidth;
+          let wTekstu = elem.offsetHeight;
+          let x = szOkna / 2 - szTekstu /2;
+          let y = wOkna /2 - wTekstu /2;
+          
+          elem.style.top = y + "px";
+          elem.style.left = x + "px";
+    
+    
+        }
+        pozycjonuj();
+    
+      </script>
+
+      <!--  
+          Cwiczenie 2
+          Utworz 3 bloki zawierajace dowolny tekst. jezeli szerokosc okna jest wieksza od 1100 bloki ustawiaj obok siebie 
+          Jezeli szerokosc okna jest mniejsza od 1100 ale wieksza od 800 dwa bloki ustawiaj obok siebie a trzeci pod spodem. 
+          W pozostalych przypadkach ustawiaj elementy jeden pod drugim. 33%
+
+
+      -->
+      <style>
+        #blok1 {
+            width: 33%;
+            height: 206px;
+            float: left;
+            border: 1px solid black ;
+            background-color: blueviolet;
+            background-size: contain;
+        }
+        #blok2 {
+            width: 33%;
+            height: 206px;
+            float: left;
+            border: 1px solid white ;
+            background-color: royalblue;
+            background-size: contain;
+        }
+        #blok3 {
+            width: 33%;
+            height: 206px;
+            float: left;
+            border: 1px solid black ;
+            background-color: orangered;
+            background-size: contain;
+        }
+    </style>
+
+    <div id="blok1"></div>
+    <div id="blok2"></div>
+    <div id="blok3"></div>
+
+    <script>
+        var bl1 = document.getElementById('blok1');
+        var bl2 = document.getElementById('blok2');
+        var bl3 = document.getElementById('blok3');
+        function bloki() {
+            var szerWewcw2 = window.innerWidth;
+            if(szerWewcw2 > 1100) {
+                bl1.style.float = 'left';
+                bl2.style.float = 'left';
+                bl3.style.float = 'left';
+            } else if(szerWewcw2 <= 1100 && szerWewcw2 > 800) {
+                bl1.style.float = 'left';
+                bl1.style.width = '49%';
+                bl2.style.float = 'left';
+                bl2.style.width = '49%';
+                bl3.style.float = 'left';
+                bl3.style.width = '100%';
+            } else if(szerWewcw2 <= 800) {
+                bl1.style.float = 'left';
+                bl1.style.width = '100%';
+                bl2.style.float = 'left';
+                bl2.style.width = '100%';
+                bl3.style.float = 'left';
+                bl3.style.width = '100%';
+            }
+        } 
+        bloki();
+        window.onresize = bloki;
+    </script>
+
+    
+
+    
+</body>
+</html>

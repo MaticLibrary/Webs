@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tekst w css</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@200&family=Playfair+Display:wght@500&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@1,100&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!--
+        Własnośći tekstu 
+        -   kolor czcionki (color)
+                Wartości reguły:
+                -   nazwa ang koloru (np. red, blue, ...)
+                -   wartosci szesnastkowe (np: #36646b)
+                -   funkcja RGB (np: 255, 33, 145)
+                -   funkcja rgba (rgb(255,44,145, 0,5))
+
+        -   czcnionka (font)
+            -   krój czcionki (font-family)
+                -   wykorzystanie kroju dostępnego w systemie operacyjnym
+                Uwaga aby font był prawidłowo wyświetlony musi być zainstalowany w systemie operacyjnym
+                Uwaga: możliwe jest podanie kilku krojów po przecinku, przeglądarka skorzysta z pierwszego dostępnego kroju
+                Uwaga: nazwy wieloczłonowe podaje się w apostrofach
+                Wykorzystanie rodziny ogólnej:
+                -   serif   (szeryfowa, z ozdobami)
+                -   san-serif   (bez ozdoników)
+                -   monospace   (font o stałej szerokośći)
+                -   fantasy (czcionka dekoracyjna
+                -   cursive (kursywa)
+        -   wykorzystanie czcnionki zaimprompnowanej z z pliku:
+                            - Google Fonts
+                            - import z pliku
+            -   rozmair czcionki (font-size)
+                -   imienne wartosci wzglęne: smaller, larger
+                -   jednostki długosci: px, cm, mm, %, inc, pt
+                -   względne jednostki
+                    -   em  (1 em = 100%)
+                    -   procentowe np 25%
+            -   waga (font-weight)
+                pogrubienie - stopień - wartość
+                wartosci ogólne: normal(400), bold(700)
+                wartości liczbowe: 100, 200, 300, ... 900
+                wartośći względne: lighter, bolder
+                UWAGA: aby mozna było skorzystac z roznych stopni pogrubienia font musi je obsługiwać
+            -   style (font-style)
+                -   Wprowadzamy kursywe (pochylenie: italic, normal)
+
+
+        -   dekoracja tekstu (text-decoration)
+            - underline - podkreslenie
+            - line-through  - pogrubienie
+            - overline  - zkreslenie
+            - none - brak dekoracji
+        -   wyrównanie tekstu (text-algin)
+            -right
+            -left
+            -center
+            -justify (wyjustowane)
+
+        -   transformacja tekstu (text-transformation)
+            - zmiana wielkości liter:
+                -none (brak transformacji)
+                -lowercase (male litery)
+                -uppercase (duze litery)
+                -capitalize (kapitaliki, pierwsza litera duza reszta mala)
+        -   wcięcie (text-indent)
+            -jednostki długosci
+
+        -   cień (text-shadow)
+        -   wysokość linii (line-height)
+            - jednostki długosci lub wartosc normal
+        -   odstępy między wyrazami (word-spacing)
+        -   odstępy między literami (letter-spacing)
+
+        -   białe znaki (white-space)
+            - zawijanie tekstów
+            - normal
+            - pre - pozwala na wyswitlanie wielu spacji obok siebie, nowy wiersz tylko po napotkaniu spacji
+            - nowrap - brak zawijania wierszy
+            - pre-wrap - spacje jak w pre, zawijanie wierszy po napotakniu znaku nowej linii i na końcu szerokości 
+            - pre-line - j.w oprócz spacji
+
+    -->
+<style>
+
+
+
+#stylpierwszy{
+    color: rgb(255, 21, 0);
+    font-family: font;
+}
+
+</style>
+<p id="stylpierwszy">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat et vero, at laudantium architecto harum distinctio? Quo ratione nulla voluptas laudantium iure error, id eligendi dolorum perspiciatis natus vel dignissimos! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque voluptatem consequatur impedit deserunt. Accusamus adipisci facere quia ipsa, illum laboriosam doloremque alias deserunt cum facilis ut recusandae suscipit harum similique?</p>
+
+<p style="font-size: xx-small"> paragraf</p>
+<p style="font-size: x-small"> paragraf</p>
+<p style="font-size: small"> paragraf</p>
+<p style="font-size: medium"> paragraf</p>
+<p style="font-size: x-large"> paragraf</p>
+<p style="font-size: xx-large"> paragraf</p>
+<hr>
+<p style="font-size: smaller;">paragraf</p>
+<p style="font-size: larger;">paragraf</p>
+<p>paragraf</p>
+<hr>
+<hr>
+<div style="font-size:100px;">
+    <p style="font-size: 1em;">1</p>
+    <p style="font-size: 0.5em;">0.5</p>
+    <p style="font-size: 0.2em;">0.2</p>
+    <p style="font-size: 75%;">Procent75</p>
+</div>
+<hr>
+<div style="font-family: 'Poppins' ;">
+<p style="font-weight: 100;">Poppins o grubosci 100</p>
+<p style="font-weight: 200;">Poppins o grubosci 200</p>
+<p style="font-weight: 300;">Poppins o grubosci 300</p>
+<p style="font-weight: 400;">Poppins o grubosci 400</p>
+<p style="font-weight: 500;">Poppins o grubosci 500</p>
+<p style="font-weight: 600;">Poppins o grubosci 600</p>
+
+</div>
+
+
+<hr>
+<p style="text-align:justify; width: 200px ;text-indent: 40px;text-shadow: 5px 5px 10px yellow;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, a
+     ullam quisquam veritatis voluptatibus omnis, aliquid, nesciunt inventore voluptate est atque! Minus, 
+     quo tenetur earum vero consequatur voluptate quia soluta.</p>
+     <hr>
+     <p style="text-transform: capitalize;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ab nisi quo pariatur,
+         in aperiam itaque quibusdam omnis magnam necessitatibus voluptatibus odio fuga incidunt quia? Quia eos quis eveniet nostrum!</p>
+         <hr>
+<p style="line-height: 80px; word-spacing: 90px;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, provident.
+     Totam nisi tenetur earum, eaque non magni neque voluptates harum? Eius laborum qui possimus ipsa hic nulla dolorem, commodi aut!</p>
+     <hr>
+     <p style="white-space:pre-wrap;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis dolor eius cupiditate dolorum veniam
+         vero unde dicta delectus quis asperiores, vel ut sit omnis aspernatur esse cumque nam adipisci aliquam? Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+          Voluptates quam deleniti ducimus fuga quod, illo ex qui libero distinctio molestiae aperiam incidunt nisi est perspiciatis consectetur, earum aut delectus nobis? lor
+          e Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio placeat repudiandae magnam quisquam dolore odit, illo magni architecto cupiditate natus consectetur,
+           perferendis consequatur commodi incidunt.  
+        Dignissimos exercitationem sit laudantium incidunt.</p>
+</body>
+</html>

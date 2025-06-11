@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funkcje</title>
+</head>
+<body>
+<script>
+    /*
+    FUNCKJA
+    Jest to fragment kodu , ktory posiada swoja nazwe i moze byc wykonany w dowolnym momencie (miejscu w kodzie ) dzieki tej nazwie
+    UWAGA:
+        Funkcje moga byc definiowane w dwolonym miejscu w kodzie i w dwowolnym miejscu wywolane.
+
+    Definiowanie funkcji:
+        Do zdefiniowania funkcji potrzeba słowa kluczowego function oraz wybranej nzawy i nawiasów okrągłych .Definijca instrukcji odbywa sie w napisach klamrowych
+    function nazwaFunkcji(argumenty){
+        ciało funkcji
+    }
+
+    */
+function suma(a,b){
+    return a+b;
+}
+/*
+    Wywołanie funkcji
+        Samo zdefiniowanie funkcji nie powoduje wykonania intrukcji w niej zawartych
+        Wywołanie wystepuje po podaniu nazwy ,nawiasów i orgumentów 
+    Przykład:
+        nazwaFunkcji();
+
+
+*/
+document.write("<hr>");
+document.write(suma(4,6));
+
+/*
+    Rodzaje funkcji:
+        1.Funkcja nie przyjmuje argumentów i nie zwraca wartosci.
+            Zastosowanie:
+            Zdefiniowanie fragmentu kodu ktory jest potrzebny w kilku miejscach w programie.
+            Składnia:
+                function funkcja(){
+                    brak slowa return;
+                }   
+    
+*/
+document.write("<hr>");
+function nicnierobi(){
+    var x = 8;
+    var y = 3;
+    var suma = x+y;
+    document.write(suma);
+}
+document.write("<hr>");
+//wywolanie funkcji
+nicnierobi();
+
+
+document.write("<hr>");
+function linia(){
+    document.write("<hr>");
+}
+linia();
+
+/*
+    2. Funkcja przyjmuje argumenty ,ale nie zwraca wartosci
+        Składnia:
+        function(argument){
+            brak słowa return;
+        }
+*/
+function wypisz(tekst){
+    document.write(tekst);
+}
+wypisz("Ala nie lubi psow ");
+linia();
+
+/*
+    3.Funkcja 
+        Nie przyjmuje argumentów ,ale zwraca wartosc.
+    Składnia:
+    function(){
+        return wartosc;
+    }
+
+*/
+function zdanie(){
+    var x="Ala lubi koty";
+    wypisz(x);
+    return 5;
+}
+//Po napotkaniu return; funckja jest przerywan
+zdanie();
+linia();
+
+/*
+    Funckja przyjmuje argumenty i zwraca wartosc
+    Składnia
+    function funkcja(argumenty){
+        return wartosc;
+    }
+
+*/
+function roznica(a,b){
+    var wynik = a-b;
+    return wynik;
+}
+
+wypisz(roznica(90,40));
+
+/*
+Zasieg zmiennych
+    Zmienne dzieli sie na :
+        Globalne 
+            widoczne są w obrębie całego programu
+        Lokalne
+            widoczne sątylko w obrębie bolku kodu
+            w ktorym zostaly zdefniowane 
+            UWAGA: w szczegolnosci zalicza sie do nich argumenty funkcji.
+
+
+*/
+linia();
+
+function funkcja(){
+    var h=7;
+}
+funkcja();
+
+//wypisz(h) jest zmienną lokalną
+var kat=45;    //zmienna globalna ,ktora jest widoczna w ciele funkcji
+function powiekszkat(){
+    kat+=45;
+}
+wypisz(kat);
+linia();
+powiekszkat();
+wypisz(kat);
+linia();
+function lokalna(){
+    var zmiennalokalna = 40;
+    return zmiennalokalna;
+}
+var wartosc = lokalna();
+wypisz(wartosc);
+linia();
+/*
+Ćwieczenie 1.
+Utworz 4 funkcje przyjmujace po dwa argumenty i zwracaja wyniki dzialan arytemtycznych .Pamietaj o dzieleniu przez 0 .Wywolaj  funkcje dla roznych argumentow i wypisz wyniki na ekran.(dodawanie odejmowanie, mnozenie, dzielenie,)
+*/
+function dodawanie(x,y){
+    return x+y;
+};
+function odejmowanie(x,y){
+    return x-y;
+};
+function mnozenie(x,y){
+    return x*y;
+};
+function dzielenie(x,y){
+    if(y!=0){
+    return x/y;
+    }
+};
+wypisz(dodawanie(10,23)+ "|" + odejmowanie(5,9));
+wypisz("<br>");
+wypisz(mnozenie(5,2)+ " | " + dzielenie(60,4));
+/*
+Cwiczenie 2 
+Napisz funkcje ktora przyjmuje dwa argumenty: podstawe oraz wykladnik;
+zwracajaca potege. Do zdefiniowania wykorzystaj petle. przetestuj dzialanie na roznych ach
+Ustaw wartosci domyslne dla argumentow
+*/
+linia();
+function potegowanie(x=2,y=5){
+    var wynik = 1;
+    for(i=1;i<= y;i++){
+        wynik*=x;
+    }
+    return wynik;
+}
+wypisz(potegowanie(2,7));
+
+
+/*
+Cwiczenie 3 
+    Napisz funckje ktora przyjmuje jeden argument i oblicza oraz zwraca silnię tej liczby.Wykorzystaj pętle 
+
+*/
+linia();
+function silnia(n){
+    var wynik = 1;
+    for(i=1;i<=n;i++){
+        wynik *= i;
+    }
+    return wynik;
+}
+wypisz(silnia(4));
+
+/*
+Napisz funckje która przyjmuje go na ekran pogrubiając i podkreślając go jako argument 
+
+*/
+linia();
+var dofunkcji;
+dofunkcji = prompt("Podaj tekst do funkcji");
+function pogrubienia(dofunkcji){
+    document.write("<strong> <u> dofunkcji  </u> </strong>");
+}
+pogrubienia();
+linia();
+/*
+    Napisz funckcje przyjmującą dwa argumenty liczbowe i zwracający NWD tych liczb
+
+*/
+
+
+
+/*
+    Napisz funckje ktora sprobuje odgadnąć płeć osoby po podaniu imienia jako argument.
+*/
+function plec(imie){
+    var ostatnia = imie.slice(-1);
+    if(ostatnia == "a") return "kobieta";
+    return "mężczyzna";
+
+}
+wypisz(plec("Barbara"));
+linia();
+
+/*
+    REKURENCJA
+        PRZYKŁAD:
+            N! = 1, if N = 0  
+            N! = N * (N - 1)!, if N > 1
+    
+    N = 5;
+    5! = 5 * (5 - 1)! = 5 * 4!
+    5! = 5 * 4 * 3!
+    5! = 5 * 4 * 3 * 2!
+    5! = 5 * 4 * 3 * 2 * 1!
+    5! = 5 * 4 * 3 * 2 * 1 * 0!
+    5! = 5 * 4 * 3 * 2 * 1 * 1
+
+*/
+function silniaREK(n){
+    if(n == 0) return 1;
+    else return n * silniaREK(n-1);
+}
+wypisz(silniaREK(5));
+
+/*
+CWICZENIE 7
+    Napisz Funckje przyjmującą podstawe oraz wykładnik i obliczający potęge w sposób rekurencyjny 
+
+DEFINICJA:
+    a^n = 1 if n = 0;
+    a^n = a * a^(n-1), jezeli n > 0;
+    a^n = 1 /  (a * a^(n-1)) , jezeli n < 0;
+
+    2^4 , a= 2 ,n = 4
+    2^4 = 2 * 2^3
+    2^4 = 2 * 2 * 2^2
+    2^4 = 2 * 2 * 2 * 2^1
+    2^4 = 2 * 2 * 2 * 2 * 2^0
+    2^4 = 2 * 2 * 2 * 2 * 1 = 16
+*/
+function potegaREK(a,n){
+    if (n == 0 ) return 1;
+    else if(n > 0) return a * potegaREK(a, n - 1);
+    else return 1 / (a * potegaREK(a, n-1));
+}
+wypisz(potegaREK(5,7));
+
+
+/*
+    Cwiczenie 8
+    Napisz funkcje rekurencyjna obliczajaca od 100 - 0 co sekunde.
+
+    setTimeout(funckja, czas w milisekundach)
+
+*/
+linia();
+function czas(t){
+    if(t == 0) return;
+    else {
+        wypisz(t + " ," );
+        setTimeout(function(){czas(--t)},1000);
+    }
+}
+czas(100);
+
+</script>    
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+

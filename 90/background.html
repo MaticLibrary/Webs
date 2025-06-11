@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BackGround</title>
+</head>
+<body>
+        <!-- Własnosći 
+            background-color - kolor tła
+            definicja koloru lub transparent
+            - background-image
+                wartosc: url
+            - background-repeat - powtarzanie obrazu w tle
+                - repeat (domyślna )
+                - repeat-x (powtarzanie tylko w poziomie)
+                - repeat-y [pwtarzanie w pionie]
+                - no-repeat (brak powtarzania)
+                - space (odstepy zostana dopasowane aby zadna grafika nie zostala przycieta)
+                - round (rozmiary zostana tak dopasowane ,aby grafika nie zostala przycieta)
+            - background-position
+                - top, center, bottom, lefit, right, px, %
+            - background-size
+                przeskalowanie grafiki do okreslonych rozmiarow
+                    - contain (skalowanie obrazu w taki sposob aby nie zostal przyciety)
+                    -  cover - przeskalowana jest dlugosc i szerokosc z zachowaniem proporcji
+            -background-position
+            UWAGA: Ta własność ma zastosowanie wyłacznie z background-repeat
+                -   jenda wartosc: center, lefit, right,bottom, jednostka
+                -   dwie wartosci: right bottom, dwie jednostki długosci
+            -   background-attachment
+                -   scroll (domyslna)
+                -   fixed (tło pozostaje nieruchome względem okna)
+                -   local (tło pozostaje nieruchome wzgledem elementu jezeli element posiada suwaki)
+            -   background-clip
+                - border-box  - wyswietlanie tla pod obramowaniem i marginesem wewnetrznym
+                - padding-box - wyswietlanie pod marginesem wewnętrznym
+                - content-box   - tło tylko pod zawartością
+            - background - reguła łączona
+                -kolor tła, tło obrazkowe, powtarzanie, zaczepienie, pozycja lub rozmiar, przycinanie
+
+            fukcje:
+                -   linear-gradient
+                        linear-gradient(kierunek, kolor 1, odleglosc 1, kolor 2, odleglosc 2)
+                        kierunki: to top, to top right, to top left,    wartosc w stopniach
+                -   radial-gradient
+                    ksztalty: circle, ellipse
+                    rozmiary: closet-side, farhest-side, farhest-corner, promiec, poziom, pion dla elipsy
+                    pozycje: to samo co dla tła obrazkowego
+
+                - background-blend-mode
+                    normal, multiply, screem, overlay
+                
+
+        -->
+
+
+
+        <style>
+            #id1{
+                width: 440px;
+                height: 440px;
+                background-color:lavender ;
+                background-image: url(testowe.png);
+                background-repeat: no-repeat;
+                background-position: center;
+              /*  background: lavender url(testowe.png) no-repeat 40px bottom; */
+            }
+
+            #id2{
+                width: 80%;
+                height: 400px;
+                background-color: aqua;
+                background-image: url(testowe.png);
+            }
+            #id3 {
+                width: 400px;
+                height: 400px;
+                background-image: url(testowe.png);
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+            }
+            #id4 {
+                width: 100%;
+                height: 400px;
+                background:linear-gradient(to top,red 0%,blue 100%);
+            }
+
+            #id5 {
+                width: 100%;
+                height: 400px;
+                background: radial-gradient(circle farthest-corner at left, red 0%, black 100%);
+                background-blend-mode: overlay;
+            }
+        </style>
+
+        <div id="id1"></div>
+        <hr>   
+       <center> <div id="id2"></div> </center>
+       <hr>
+       <div id="id3">dasdaf</div>
+       <hr>
+       <div id="id4"></div>
+       <hr>
+       <div id="id5"></div>
+
+</body>
+</html>

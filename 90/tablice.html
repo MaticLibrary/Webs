@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Tablice
+        Struktura pozwalająca na przechowywanie więcej niż jednej wartości
+        Wartości mogą być liczbowe tesktowe itd. (tak jak zmienne).
+        Taablica jest przewaznie zbiorem wartosci jednego typu.
+        Elementy tablic są numerowane (indeksowanie), a numery nazywa sie indeksami.
+        UWAGA:
+            Numerowanie w tablicy rozpoczyna się od zera!!!
+
+        Definiowanie Tablic:
+            var nazwaTablicy = new Array(); - stworzenie tablicy o długości 0
+            var nazwaTablicy = new array(10); - ilość elemenetów to 10
+            var nazwaTablicy = []; - to samo co w pierwszym przykładzie.
+            var nazwaTablicy  = new Array("Marcin", "Hania", "Wiesio"); - wykorzystanie
+            listy inicjalizacyjnej
+
+            Korzystanie z tablic:
+                Do elementów tablicy odwołujemy się poprzez podanie nazwy, a następnie
+                numeru elementu w nawiasach kwadratowych.
+                Przykład:
+                    nazwaTablicy[8];
+                    nazwaTablicy=[1] = 5
+        */
+       //                       0        1       2      3        4
+        var imiona = new Array("Marcin","Joloa","Kuba","Jonasz","Mariola");
+        document.write(imiona[0]);
+        document.write("<br>");
+        //wypisanie wszystkich elementów tablicy za pomocą pętli
+        for(i=0; i<imiona.lenght; i++) { 
+            document.write(imiona[i]+ "<br>");
+        }
+        document.write("<hr>");
+        //wypełnienie tablicy liczbami
+        var kolejneLiczby = new Array();
+        for(i=0; i<50; i++ ) {
+            kolejneLiczby[i] = (i+1);
+        } 
+        document.write(kolejneLiczby[9]);
+        document.write("<hr>");
+        //wypełnienie tablicy liczbami podzielnymi przez 3 z przedziału od 50 do 100
+        var podzielne = new Array();
+        for(i=50; i<=100; i++) {
+            if(i%3 == 0) {
+                podzielne.push(i);
+            }
+        }
+        document.write(podzielne.length);
+        document.write("<hr>");
+        document.write(podzielne[9]);
+        document.write("<hr>")
+        /*
+        Metody dotyczące tablic (wybrane)
+        - push() - metoda dodająca element do tablicy 
+        -sort() - sortowanie tablicy
+        - join() - łączy elementy tablicy w jedną całość
+        - reverse() - odwraca tablicę 
+        - slice() - wyciąganie konkretnych fragmentów tablic 
+        - pop() - usuwanie ostaniego elementu tablicy ( skraca tablice)
+        - shift() - usuwanie pierwszego elementu tablicy (skraca tablicę)
+        -unshift() - dodaje element na początku tablicy (wydłuza tablicę)
+
+        - split() - tworzy tablicę z wartośći (TO NIE JEST METODA ZABLICY)
+        */
+        //ĆWICZENIA 1
+       //Utwórz tablicę z dowolnymi wyrazami (5 elem.) i użyj na niej metody sort.
+       //Wyświetl wszystkie elementy tej tablicy.
+       var owoce = new Array("banan", "jabłko", "arbuz", "cytryna", "truskawka");
+       owoce.sort();
+       for(i=0; i<owoce.length; i++) {
+           document.write(owoce[i] + ", ");
+       }
+       document.write("<hr>")
+       //ĆWICZENIE 2
+       //Utwórz tablicę z liczbami i posortuj ją.
+       function porownaj(a, b) {
+            //if(a>b) return 1;
+            //if(a<b) return -1;
+            //return 0;
+            return a - b;
+       }
+       var liczby = new Array(70, 7, 25, 73, 12, 21, 100);
+       liczby.sort(porownaj);
+       for(i=0; i<liczby.length; i++) {
+           document.write(liczby[i] + ", ");
+       }
+       //JOIN 
+       document.write("<hr>");
+       var joined = owoce.join(" i ");
+       document.write(joined);
+       //REVERSE
+       document.write("<hr>");
+       var nazwiska = new Array("Nowak","KOwalski", "Baran");
+       nazwiska.reverse();
+       document.write(nazwiska.join());
+       //SLICE
+       document.write("<hr>");
+       //Metoda nie zmienia oryginalnej tablicy ,zwraca tylko jej fgratment
+       var doPociecia = new Array("domek", "Garaz", "Komorka", "komin", "Tarnov", "pomidor");
+       document.write(doPociecia.slice(5));
+       document.write("<br>");
+       document.write(doPociecia.slice(2,5));
+       document.write("<hr>");
+       document.write(doPociecia.slice(-2,5));
+       document.write("<hr>");
+       //POP
+       owoce.pop();
+       document.write(owoce);
+       document.write("<hr>");
+       document.write("<hr>");
+       //SHIFT
+       document.write("<hr>");
+       owoce.shift();
+       document.write(owoce);
+       //unShift
+       document.write("<hr>");
+       owoce.unshift();
+       document.write(owoce);
+       /*
+         Pozostałe metody tablic:
+        -   forEach() - Pętla pozwalająca na wykonanie operacji na każym elemencie tablicy
+        -   fill() - wypełnianie tablicę
+        - filter() - tworzy nowa tablice z elementow spelniajacych zadane kryteria 
+        -   find() - zwraca pierwszy znaleziony element wg kryterium
+        - includes() - sprawdza czy tablica zawiera poszukiwany element 
+        - map() - tworzy nową tablice z elementow przetworzonych przez skrytp
+       */
+       function wypisz(element, index, array){
+            document.write(element + "<br>");
+       }
+       owoce.forEach(wypisz);
+       //MAP 
+       document.write("<hr>");
+       var numbers = new Array(4,25,121,2137);
+       var pierwiastki = numbers.map(Math.sqrt);
+       document.write(pierwiastki);
+       document.write("<hr>");
+       //Ćwiczenia 
+       //1.Utworz tablice 6 elementową . za pomoca prompt wczytaj do tablicy wartosci ,a nastepnie wyswielt cala tablice na ekranie s
+       document.write("<hr>");
+        var tablica = new Array(6); //stworzenie tablicy o 6 elem.
+        for(i=0;i<tablica.length;i++) {
+            //podstawienie pod kolejny element tablicy
+            tablica[i] = prompt("podaj "+i+" element");
+        }
+        //pętla wyświetlająca elementy 
+        for(i = 0; i < tablica.length; i++) {
+           document.write(tablica[i] + '<br>');
+        }
+        document.write('<hr>');
+       //2. utworz tablice 20 elementowoa i wypelnij ja liczbami losowymi z przedzialu od 1 do 100 .Napisz instukcje  ktore sprawdza ile razy  w tej tablicy wystepuje 22
+       var losoweLiczby = new Array(20);
+       for(i = 0; i < losoweLiczby.length; i++) {
+      losoweLiczby[i] = Math.floor(Math.random() * 100 ) + 1;
+}
+     var licznik = 0;
+        for(i = 0; i < losoweLiczby.length; i++) {
+        if(losoweLiczby[i] == 22) licznik++;
+}
+     document.write(licznik);
+     document.write("<hr>");
+       //3. utwprz tablice 100 elementowa . wypelnij ja losowymi liczbami z przedzialu od 1 do 1000 .Wyswietld zawartosc .Posortuj tablice malejaco (od najwiiekszjej do najmniejszej)
+        var los = new Array(100);
+        for(i = 0; i < los.length; i++) {
+            var nowaLiczba = Math.floor(Math.random() * 1000) + 1;
+            los[i] = nowaLiczba;
+            document.write(nowaLiczba + "&nbsp;&nbsp;&nbsp;&nbsp;");
+        }
+        los.sort(porownaj);
+        los.reverse();
+        document.write("<br><br>");
+        for(i = 0; i < los.length; i++) {
+            document.write(los[i] + "&nbsp;&nbsp;&nbsp;&nbsp;");
+        }
+        document.write("<hr>");
+        document.write("<br>");
+        
+       //4. Utworz tablice zawierajaca polskie nazwy miesiecy oraz druga tablice zawierajaca polskie nazwy tygodnia . wyswietl dzisiejsza date korzystajac z tych tablic.
+       var miesiace = new Array("styczeń", "luty", "marzec", "kwiecień", "maj", "czerwiec", "lipiec", "sierpień", "wrzesień", "październik", "listopad", "grudzień");
+        var dni = new Array("poniedziałek", "wtorek", "środa", "czwartek", "piątek", "sobota", "niedziela");
+        var data = new Date();
+        var rok = data.getFullYear();
+        var miesiac = data.getMonth();
+        var dzienMiesiaca = data.getDate();
+        var dzienTygodnia = data.getDay();
+        document.write("rok: " + rok + "<br>");
+        document.write("miesiac: " + miesiace[miesiac] + "<br>");
+        document.write("dzien: " + dzienMiesiaca + "<br>");
+        document.write("nazwa dnia: " + dni[dzienTygodnia - 1] + "<br>");
+
+    </script>
+</body>
+</html>

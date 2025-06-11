@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOTHIC</title>
+</head>
+<body>
+    <script>
+        //powitanie
+        alert("Witaj w Grze RPG");
+        //pobranie imienia gracza
+        var imiegracza=prompt("podaj swoje imie: ");
+        //konstrukcja pętli
+        //[0 - imie , 1- HP, 2- siła ataku , 3- siła obrony]
+        //HP = 100 + losowa(1-10)
+        //siła ataku : losowa (1-10), siła obrony (1-10)
+        var gracz = new Array(
+            imiegracza,
+            100+Math.floor(Math.random()*10 )+1,
+            Math.floor(Math.random()*10 )+1,
+            Math.floor(Math.random()*10 )+1,
+        );
+        var wrog = new Array(
+            "Smulski",
+            100+Math.floor(Math.random()*10 )+1,
+            Math.floor(Math.random()*10 )+1,
+            Math.floor(Math.random()*10 )+1,
+        );
+
+        document.write("GRACZ: " + gracz[0] + ",HP: " + gracz[1] + " atak: " + gracz[2] + "obrona: " + gracz[3] + "<br><br>" );
+        document.write("WRÓG: " + wrog[0] + ",HP: " + wrog[1] + " atak: " + wrog[2] + "obrona: " + wrog[3] + "<br><br>" );
+        //pętla 
+        //HP wroga = HP - siła ataku gracza + siła obrony wroga /2
+        //HP gracza = HP gracza - siła ataku wroga + siła obrony gracza /2
+        document.write("<br><br>");
+        document.write("<table border='1'>");
+        document.write("<tr><th>runda</th><th>HP gracza </th><th>HP wroga </th></tr>");
+
+        while(gracz[1]> 0 && wrog[1]> 0 ){
+
+            var atakgracza = gracz[2] + wrog [3]/2;
+            if(atakgracza > 0 ) wrog[1] -= atakgracza;  
+            var atakwroga = wrog[2] - gracz[3]/2;
+            if(atakwroga > 0) gracz[1] -= atakwroga;
+            document.write("<tr><td>"+runda+"</td><td>"+ gracz[1] +"</td><td>"+ wrog[1] + "</td></tr>");
+            runda++;
+        
+        }
+
+
+ </script>
+
+
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selektory</title>
+</head>
+<style>
+    
+</style>
+
+<body>
+    <!-- 
+        Typy selektorów
+        1. selektor elementów
+            a. selektor znacznikow
+            b. selektor uniwersalny
+            c. selektor identyfikatorów
+            d. selektor klas
+        2. selektor atrybutu
+
+        3. selektor pseudoelementow
+        4. selektor pseudoklas
+    
+
+
+        Selektor uniwesralnu sluzy do wskazania wszystkich elementow
+        przykład:
+        * {color: red;}
+
+        Selektor znacznikow
+            SŁuży do wskazania elementu lub elementow uwzgledniajac nazwe znacznika 
+            Przyklad:
+            div {background-color:red;}
+        Selektor klas 
+        sluzy do wskazania elementu lub elementu uwzgledniajac wartosc atrybutu class czyli przynaleznosc do klasy
+        .klasa {width: 200px;}
+
+        Selektor identyfiaktorow
+        sluzy do wskazania elementu tylko jednego  posiadajacego atrybut id o zadanej wartosci
+        przyklad
+        #ID {width: 50%;}
+
+
+        Selektor atrybutów
+            Słuzy do wksazania  elementow HTML posiadajcy wybrany atrybut lub atrybut o wskazanej wartosci przyklad
+            [title] {color: blue;}
+
+        Selektory pseudoelementowe
+            Sluza do wskazania elementow , ktore nie westepuja w kodzie HTML ,ale moga sier w dokumencie pojawiac
+            Przyklady 
+            ::first-letter{color: red;}
+
+            Selektor psedoklas 
+                sluzy do odszukania elementu na podstawie roznych kreyteriow 
+                przyklad
+            a::hover {color:red;}
+    -->
+
+    <style>
+        * {
+            color: palevioletred;
+        }
+
+        div {
+            background-color: lightseagreen;
+        }
+
+        .class {
+            width: 50%;
+        }
+
+        #ID {
+            width: 50%;
+            background-color: maroon;
+        }
+
+        [title] {
+            color: green;
+        }
+
+        [title="link"] {
+            background-color: brown;
+        }
+
+        ::first-letter {
+            color: darkorchid;
+            font-size: 20px;
+        }
+
+        div:hover {
+            background-color: khaki;
+        }
+    </style>
+
+    <p id="ID">paragraf</p>
+    <div class="class">div</div>
+    <a href="#" title="link">LINK2</a>
+
+    <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita debitis quaerat reiciendis vel tempore quae at
+        quibusdam! Officiis in distinctio eos sapiente sequi suscipit iste magnam et, ullam reprehenderit ab.</h1>
+    <hr>
+    <hr>
+    <!-- 
+    Łączenie selektorów 
+        Istnieje możliwość połączenia selektorów 
+        w jednej regule CSS , łączenie posłuży nam do zawężenia (doprecyzowania zasięgu selektorów)
+        Będzie także służyło do zwiększenia wagi selektorów, nazwyamy jednym selektorem prostym.
+        Selektor połączony nazwyany jest selektorem złożonym. Łączenie umożliwiają znaki specjalne nazywane kombinatorami:
+        spacja (potomka), > (dzieci), + (braci)
+
+-->
+    <style>
+        /* kolor bedzie stosowany tylko i wylacznie do linkow nalezacych do klasy */
+        a.klasa {
+            color: darkmagenta;
+        }
+
+        p.klasa {
+            background-color: green;
+        }
+
+        /*taki selektor złozony pozwala odszukac wszystkie elementy <p> wewnątrz elementu o ID sekcja*/
+        #sekcja>p {
+            background-color: lightcoral;
+        }
+
+        /* selektor odwołuje sie tylko do pierwszej litery sekcji posiadających atrybut rel o wartosci sekcja1 */
+        section[rel="sekcja1"]::first-letter {
+            color: greenyellow;
+            font: 45 px;
+        }
+    </style>
+    <p class="klasa">To jest paragraf klasa </p>
+    <a href="#" class="klasa"> to jest link</a>
+    <section id="sekcja">tekst w sekcji
+        <p>Paragraf 1</p>
+        <p>Paragraf 2</p>
+
+    </section>
+    <section rel="sekcja1"> sekcja 1</section>
+    <a href="#" rel="sekcja1">link </a>
+    <hr>
+    <hr>
+    <!-- Waga selektorów
+     Oznacza w jakiej kolejnosci będą miały zastosowanie reguły CSS przepisane do elementu za pomocą różych selektoró
+     Kazdy rodzaj selektora posiada swoją wage, i jest ona wyliczana na podstawie ,typu oraz kombinacji selektorów
+
+     UWAGA selektor uniwesralny ma wage 0 i nie wplywa na zwiekszenie wagi nawet jezeli zostanie polaczony z inymi selektorami
+    -->
+
+    <style>
+        strong {
+            color: blue;
+        }
+
+        strong {
+            color: yellow;
+        }
+    </style>
+
+    <strong>To jest strong</strong>
+    <hr>
+
+    <style>
+        footer#stopka.k[title] {
+            background-color: deeppink;
+        }
+
+        footer#stopka[title] {
+            background-color: crimson;
+        }
+
+        #stopka[title] {
+            color: blueviolet;
+        }
+
+        footer#stopka {
+            color: antiquewhite;
+            background-color: aqua;
+        }
+
+        footer.k {
+            color: black;
+        }
+
+        footer.k[title] {
+            color: greenyellow;
+        }
+
+        footer {
+            color: rebeccapurple;
+        }
+
+        * {
+            color: coral;
+        }
+    </style>
+
+    <footer class="k" id="stopka" title="tytul">
+        To jest stopka
+    </footer>
+
+    <!--
+        Cwiczenia 1
+        Utworz na stronie zbiór linkow co najmniej 5 i nadaj im styl za pomoca selektora znacznikow
+        - kolor czerwony
+        - kroj czcionki
+        - kolor tla czarny
+        - pseudo klasa hover kolor tla zolty
+    -->
+    <style>
+        a:hover {
+            background-color: yellow;
+        }
+
+        a {
+            color: red;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background-color: black;
+        }
+    </style>
+    <hr>
+    <a href="#">Linkki</a>
+    <a href="#">Linkki</a>
+    <a href="#">Linkki</a>
+    <a href="#">Linkki</a>
+    <a href="#">Linkki</a>
+    <hr>
+    <!--Wstaw na strone co najmniej 4 obrazki. przydziel je do jednej klasy uzyj selektora klasy aby ustawic:
+   szerokosc 150px
+   wysokosc 150 px 
+    -->
+    <style>
+        .obrazy {
+            background-color: brown;
+            color: red;
+
+        }
+
+        img.obrazy {
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+    <img class="obrazy" src="testowe.png">
+    <img class="obrazy" src="testowe.png">
+    <img class="obrazy" src="testowe.png">
+    <div class="obrazy">DIVV</div>
+    <img class="obrazy" src="testowe.png">
+    <img class="obrazy" src="testowe.png">
+    <img class="obrazy" src="testowe.png">
+
+
+
+</body>
+
+</html>

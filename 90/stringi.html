@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strings</title>
+
+ 
+</head>
+<body>
+    <!--
+        Zmienna typu STRING to ciąg znakowy
+        Własność:
+        -   Dłogość (Ilość znaków ) - length
+        Metody:
+        -   charAt(pozycja) - odczytuje znak na podanej pozycji (liczenie rozpoaczyna sie od  0)
+            UWAGA teksty mozna literowac (kazdy znak ma swoj index)
+        -toUpperCase()  -   zamienia znaki na duze
+        -ToLowerCase()  -   zamienia znaki na male
+        -concat() - słuzy do łączenia ciągów znakowych
+        -index0f()  - poszukuje fragmentu tekstu i zwarca numer ,znaku na ktorym znaleziono fragment,zwarca -1 jezeli nie znajdzie
+        -lastIndex0f()  -   zwraca numer ostatniego wystapienia
+        -   startsWith()-zwraca prawdęjezeli ciąg znaków rozpoczyna się od podanej sekwencji                                                                                                                           
+        -  endWith()    - zwraca prawdę jezeli ciąg znaków kończy się na podanej sekwencji
+        -   substr(start,dlugosc) - zwraca fragment zmiennej tekstowej. Zaczyna od miejsca start i pobiera podaną ilość znaków. Długość jest opcjonalna i jeżeli nie zostanie podana zostanie pobrane wszystko od startu do końca
+        - substring(start, stop) - j.w z tym ,że drugi paramter definiuje numer znaku, na którym kończy się pobieranie
+        -   slice(start, stop)- j.w
+        -   split(separator) - zwraca talice ciągów znakowych składającą się z fragmentów rozdzielonych separatorem.
+        -   replace(fragment,inny fragment)- dokonuje zamiany odnalezionego fragmentu na fragment podany jako drugi argument
+        -   repate()    - powtarza tekst zadaną ilość razy
+    -->
+    <script>
+        var tekst = "Ala ma kota ";
+        document.write(tekst + "<br>" +tekst.length);
+        document.write("<hr>");
+        document.write(tekst.charAt(0));
+        /* Cwiczenie 1 zdefniuj zmienna tekstowa i wypisz za pomoca pętli znaki jeden pod drugim */
+        document.write("<hr>");
+        for(i=0;i<tekst.length;i++){
+            document.write(tekst.charAt(i)+"<br>");
+        }
+        document.write("<hr>");
+        /* Cwiczenie dwa zdefiniuj zmienna zawierajaca dowolne imie (stEfAn) i zamien pierwsza litera na dużą , a pozostale na male i wypisz na ekran */
+        var imie = "stEFan";
+        document.write(imie.charAt(0).toUpperCase());
+        for(i=1;i<imie.length;i++){
+            document.write(imie.charAt(i).toLowerCase());
+        }
+        document.write("<hr>");
+        /* Cwiczenie trzecie */
+        var text = "Ala";
+        var text1 = "m$$ny Ben skrksr";
+        text.concat(" ", "ma "," kota ");
+        document.write(text);
+        document.write("<hr>");
+        /* Cwiczenie cztery 
+        Zdefiniuj zmienna znakowa zawierajca znak $ i sprawdz czy taki znak sie w niej znajduje 
+        -
+        Sprawdz czy ten znka wystepuje tylko raz.
+        */
+        var indeks = text1.indexOf('$');
+        if(indeks != -1){
+            document.write("w tekscie jest znak dolar");
+        }
+        else{
+            document.write("w tekscie nie ma dolarow ");
+
+        }
+        /* Zdefinuj zmienna znakową i pobierz
+        -znaki od 3 do końca 
+        - 3 znaki od pozycji 5
+        - znaki od 4 do 8
+        - jeden znak od konca
+        - kazdy fragmet wypisz od nowej linii
+        */
+       document.write("<hr>");
+       var cwiczenie5 = "lorem ipsum muspi merol";
+       var od3 = cwiczenie5.substr(2);
+       document.write(od3+"<br>");
+       var trzyod5 = cwiczenie5.substr(4,3);
+       document.write(trzyod5+"<br>");
+       var od4do8 = cwiczenie5.substr(3,7);
+       document.write(od4do8+"<br>");
+       var odkonca = cwiczenie5.substr(-1);
+       document.write(odkonca+"<br>");
+       document.write("<hr>");
+    /*Cwiczenie 6 
+    utworz zmienna zawierajaca imiona rozdzielone przecinkami , pobierz je do tablicy i wypisz jeden pod drugim
+    UWAGA
+    UWAGA
+    UWAGA
+    UWAGA
+    UWAGA
+    */
+    var listaimion = "Stonson, Stokłosa, Mivo, Tarkov, Ivan, Jasiak";
+    var tabImion = listaimion.split(", ");
+    for(i=0;i<tabImion.length;i++){
+        document.write(tabImion[i]+ "<br>");
+    }
+    document.write("<hr>");
+    /*
+    Zdefiniuj zmienna znakowa zawierajca slowo pies i zamien to slowo na kot.
+    */
+    var lorem = "Pies Pies pies pies PIES koty KOT kot marcin i pies poszli na spacer";
+    var zamienione = lorem.replace(/pies/g, "kot");
+    document.write(zamienione);
+    document.write("<hr>");
+    /*CWICZENIE 7
+        zdefinuj zmienna znakową i wyswietl ją na ekreanie 20 razy bez uzywania pętli
+    */
+   var dopetli  = "LOREM";
+   var petla = dopetli.repeat(20);
+   document.write(petla);
+    </script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+

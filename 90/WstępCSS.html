@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS</title>
+
+<!-- Wstawienie zewnetrznego akrusaz stylow -->
+<link rel="stylesheet" href="style.css">
+
+
+
+</head>
+<body>
+    <!-- 
+        Podział:
+            HTML- struktura dokumentu (elementy, klocki)
+            CSS- prezentacja dokumentu (reguły, odpowiedzialne za renderowanie wyglądu elementów HTML)
+
+        DEFINICJA
+            CSS- Casading Style Sheets - kaskadowe arkusze stylów 
+        
+            DEfinicja akrusza stylow - lsita reguł CSS ustalających soposób wyswietlania elementow HTML na postawie selektorów
+
+        Definicja reguły CSS - struktura zbudowana z własności (property) oraz jednej lub więcej wartosci (value).
+        Przykład:
+        backgorund-color: blue;
+        SKŁADNIA:
+        Regułą zmieniająca kolor tła elementu
+        -   background-color własność (dwuczłonowe nazwy łącza się pauzą , nie występuje tutaj spacja)
+        -   dwukropek - odziela wartosc do wartosci
+        -   blue -wartosc
+        -   srednik konczy kazda regułe CSS
+        Przykład 
+            font: 16px Arial;
+        UWAGA: reguły CSS nie mają zastowania dopóki nie zostaną przypisane do elementów
+        Sposoby przypisania reguł:
+        -   lokalny styl (liniowy)
+            Przypisanie stylu liniowego wykonane jest przy pomocy atrybutu STYLE
+        -   arkusz stylów (lokalny lub zewnętrzny):
+            Przypisanie odbywa sie za pomoca selektorów
+
+
+
+    -->
+
+    <div style="background-color: rgb(106, 255, 193); width: 200px; height: 300px;">TO jest DiV </div>
+    <!--
+        CWIECZENIE 1
+        WSTAW paragraf z przykladowym tekstem. wykorzystaj styl liniowy aby ustawic kolor tła ,kolor czcionki, krój czcionki Arial
+    -->
+    <p style="background-color: blueviolet; font: 18px Arial;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt sunt dolorum, corporis blanditiis nihil deserunt, totam et autem quasi repellendus mollitia consectetur hic culpa animi quae eos voluptatem inventore. Soluta?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae obcaecati magni accusamus deserunt tempore dolorum distinctio animi in culpa consequatur quasi, tempora ducimus recusandae sit impedit itaque sed eos saepe</p>
+ 
+    <!-- 
+        LOKALNY ARKUSZ STYLÓW
+        WSTAWIANIE lokalnego arkusza umożliwa znacznik <style> Mozna go wstawic w dowolnym miejscu w dokumencie\
+        Dobrą praktyką jest umieszczanie takiego arkusza w sekcji HEAD w  dokumentu
+        Wszystko co zostanie zawarte pomiędzy znacznikiem utwierającym i zamykającym musi być zgodne ze skłądnią języka CSS
+
+        UWAGA: lokalnu  arkusz stylów widoczny jest tylko w obrębie dokumentu , w którym został wstawiony.
+
+        SKŁADNIA:
+            selektor {
+                reguły css
+            }
+        Wszystkie reguł umieszczone w nawiasach będą stosowane do elementu lub elementów odnalezionych na podstawie selektora.
+
+
+
+    -->
+    <style>
+        /*Komentarze w stylach*/
+        
+    </style>
+<div id="blok">Regula</div>
+<div id="cwiczenie">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia nisi alias ut. Dignissimos, odit velit quibusdam accusamus et sunt, molestias laudantium delectus soluta est voluptate deserunt nulla dolor unde magnam?</div>
+
+<!-- POŁACZENIE Z ZEWNĘTRZNYM ARKUSZEM STYLÓW
+    zewnterzny osobny plik z roszerzeniem CSS jest zewnętrznym arkuszem.
+    Taki arkusz moze zostac dolaczony do wielu dokumentow HTML.
+    Dołączenie zewnetrznego arkusza umozliwa znacznik <link>  ktory jest umieszczany w sekcji HEAD dokumentu.
+-->
+<hr>
+<div id="zew">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum, optio porro qui molestias corporis deleniti dicta impedit maxime officia, enim veniam reprehenderit nulla quis beatae. A, at! Ratione, veritatis quasi?</div>
+<!-- 
+Metody wstawiania styli
+-   atrybut style - lokalny, niepolecany sposob uzywany w ostatecznosci
+-   element <style> - do małych projektów
+-   zewnetrzny arkusz - plik
+
+
+-->
+
+<!-- 1. Dziedziczenie inaczej kaskadowość
+        Element będzie posiadał wygląd będący sumą wszystkich
+        nie wykluczających się styli zapisanych w różnych arkuszach
+        Elementy będące elementami podrzędnymi
+        Będzie dziedziczyć
+
+    2.  Hieracrchia - kolejnosc stosowania styli w pierwszej kolejnosci zastosowania maja style liniowe . w nastepnej kolejnosci stosowanme
+    sie blizej stylowego elementu HTML
+-->
+<style>
+    #paragraf{
+        background-color: darkturquoise;
+
+    }
+</style>
+<style>
+    #paragraf{
+        color: whitesmoke;
+    }
+
+</style>
+<hr>
+<p id="paragraf">Paragsafas
+    <strong>Dziedziczenie </strong>
+</p>
+
+
+<style>
+    #blok3{
+        background-color: tomato;
+
+    }
+</style>
+
+<div id="blok3" style="background-color: turquoise;">BlOKK 3</div>
+
+
+
+
+
+
+
+</body>
+</html>

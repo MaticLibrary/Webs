@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object Model</title>
+</head>
+
+<body>
+
+    <!-- DOM - obiektowy model dokumentu
+        hierarchiczny model ułożenia elementów na stronie.
+        Klasa SAMOCHÓD - defnicja Ogólna
+        - koła
+        - kierownica
+        - silnik
+        - nadwozie
+        - kolor
+        - marka
+        OBIEKT maluch:
+            4 koła
+            kierwonica po lewej stronie
+            4 miejsca
+            czerwony
+            126p
+        Hierarchia:
+        -   okno przeglądraki- window- szczyt hierarchii
+        -   dokument html- document- drugi w hierarchii obiekt będacy elementem nadrzędnym wszystkich elementów HTML
+        -   elementy html - np. html, head, body, div, span, a itd.
+
+        OBIEKT WINDOW- własności:
+        -   location(bieżacy adres okna)
+            - host
+            - hostname
+            - href
+        -   InnerWidth- szerokość wewnętrzna
+        -   OuterWidth- szerokość zewnetrzna
+        -   innerHeight- wysokosc wewnętrzna
+        -   innerHeight- wysokosć zewnętrzna
+
+        OBIEKT WINDOW- metody:
+        -   alert   - okno dialogowe
+        -   promt   - okno z polem tekstowym
+        -   confirm - okienko z potwierdzeniem
+        -   open    - otwiera nowe okno
+        -   close   - zamyka okno
+        -   setTimeOut  - opoznienie
+        -   ClearTimeOut    
+
+        DOCUMENT - własności:
+        -   location - adres documentu
+        -   title - tytuł
+
+        DOCUMENT - metody:
+        UWAGA: wszystkie elementy odwołania DOM należy wstawiać za ich wystąpieniem!
+        -   getElementById - pobiera element o podanym identyfikatorze
+        -   getElementByTagName - pobiera elementy po znacznikach
+        -   getElementsByClassName - pobiera elementy należące do podanej klasy(atrybut class)
+        -   getElementByName - pobiera elementy o podanej nazwie (atrybut name)
+        -   createElement   -   tworzy nowy element HTML
+        -   wirte   -   wpisuje zawartosc do dokumentu
+        -   querySelector - pobiera element pasujący do selektora
+        -   querySelectorAll - pobiera elementy pasujące do selektora
+        -   insertBefore, insertAfter (metody elementu body, pozwalają na wstawienie nowo utworzonego elementu)
+    -->
+    <script>
+        document.write("Wew szerokość: " + window.outerHeight);
+        document.write("<hr>");
+        document.write("szerkosc zewnetrzna" + window.outerWidth);
+        document.write("<hr>");
+        document.write("zew szerokość: " + window.innerWidth);
+        document.write("<hr>");
+        document.write("zew zewnetrzna" + window.innerHeight);
+        document.write("<hr>");
+        document.write("lokation " + window.location.href);
+
+
+    </script>
+    <hr>
+    <div id="blok">Tekst w bloku</div>
+    <script>
+        var b = document.getElementById('blok');
+        b.style.backgroundColor = "green";
+
+    </script>
+    <hr>
+    <a href="#">LINK 1</a><br>
+    <a href="#">LINK 2</a><br>
+    <a href="#">LINK 3</a><br>
+    <a href="#">LINK 4</a><br>
+    <a href="#">LINK 5</a>
+    <script>
+        var linki = document.getElementsByTagName('a');
+        linki[1].style.backgroundColor = "red";
+        for (i = 0; i < linki.length; i++) {
+            linki[i].style.color = "pink";
+        }
+    </script>
+    <hr>
+    <span class="klasa">To jest span</span>
+    <section class="klasa">to jest sekcja </section>
+    <div class="klasa">to jest div</div>
+    <script>
+        var k = document.getElementsByClassName('klasa');
+        k[0].style.backgroundColor = "Aqua";
+    </script>
+    <hr>
+    <input name="imie" type="text"><br>
+    <input name="nazwisko" type="text"><br>
+    <input name="imie" type="text"><br>
+    <script>
+        var imie = document.getElementsByName('imie');
+        imie[1].value = "Stefan";
+    </script>
+    <hr>
+    <div id="id1">to jest div o id 1</div>
+
+    <script>
+        var nowyDiv = document.createElement("div");
+        nowyDiv.innerHTML = "to jest nowy div";
+        var elem = document.getElementById('id1');
+        document.body.insertBefore(nowyDiv, elem);
+    </script>
+    <hr>
+    <div id="id2"> to jest div o id 2</div>
+    <script>
+        var id2 = document.querySelector('#id2');
+        id2.style.backgroundColor = "red";
+
+
+    </script>
+    <hr>
+
+    <section class="kl">sekcja klasa</section>
+    <div class="kl">to jest divv</div>
+    <a href="#" class="kl">link</a>
+    <script>
+        var qs = document.querySelectorAll('.kl');
+        qs[1].style.backgroundColor = "brown";
+    </script>
+
+    <!--
+        Hierarchia elementów
+        window -> document
+            head
+                title
+            body
+                div
+                    a
+                    p
+                table
+                section
+    -->
+    <hr>
+    <div id="id3">
+        <!-- rodzic , parent-->
+        <p> to jest paragraf </p> <!-- Dziecko , child-->
+        <a href="#">link</a> <!-- brat, sibling-->
+        <p>to jest paragraf</p>
+        <div>
+            <p>To jest paragraf</p>
+            <section> to jest sekcja </section>
+        </div>
+    </div>
+    <script>
+        var id3 = document.getElementById('id3');
+        var divy = id3.getElementsByTagName('div');
+        divy[0].style.backgroundColor = "aqua";
+        var sekcja = divy[0].getElementsByTagName('section');
+        sekcja[0].style.color = "white";
+    </script>
+    <!-- Kazdy element w dokumencie tworzy WĘZEŁ (NODE). Węzłem jest nie tylko znacznik, ale takze np. tekst w nim zawarty
+        <div> jakis tekst </div>
+        -   div - węzeł (obiekt)
+        -   jakiś tekst - węzeł tekstowy ( obiekt) - litery, znaki są wartością tego węzła 
+
+
+    -->
+    <hr>
+
+    <div id="id4">
+        <!-- rodzic , parent-->
+        <p> to jest paragraf </p> <!-- Dziecko , child-->
+        <a href="#">link</a> <!-- brat, sibling-->
+        <p>to jest paragraf</p>
+        <div>
+            <p>To jest paragraf</p>
+            <section> to jest sekcja </section>
+        </div>
+    </div>
+
+    <script>
+        var id4 = document.getElementById('id4');
+        var dzieci = id4.childNodes;
+        alert(dzieci.length);
+        dzieci[5].style.backgroundColor = "brown";
+    </script>
+
+</body>
+
+</html>

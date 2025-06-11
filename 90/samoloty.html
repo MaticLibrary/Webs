@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEST</title>
+</head>
+<body>
+    <style>
+        .container{
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.flex-container {
+    display: -webkit-flex;
+    display: flex;
+    width: 100%;
+    background-color: gray;
+}
+
+.flex-item {
+    background-color: teal;
+}
+
+.item1 {
+    width:35%;
+}
+
+.item2 {
+    width:35%;
+	background-color: gray;
+}
+
+.item3 {
+    width:35%;
+}
+.reklama {background-color: orange; flex: 10%; font-size: 60px; text-align: center; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
+
+    </style>
+
+
+
+
+    <div class="container">
+        
+      <div class="flex-container">
+        <div class="flex-item item1">Lscipit a</div>
+        <div class="flex-item item2">Lorem iing elit. Proin.</div>
+        <div class="flex-item item3">
+            <div class="reklama" id="rek">R<br>E<br>K<br>L<br>A<br>M<br>A</div>
+        </div>  
+      </div>
+      </div>
+      
+
+
+      <script>
+        var reklama = document.getElementById("rek");
+        reklama.onmouseover = function() {
+        reklama.style.backgroundColor = "black"
+        reklama.style.color = "orange"
+        }
+        reklama.onmouseout = function() {
+        reklama.style.backgroundColor = "orange"
+        reklama.style.color = "black"
+        }
+        
+    </script>
+    
+</body>
+</html>

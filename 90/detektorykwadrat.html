@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kwadrat</title>
+</head>
+<body>
+    <style>
+        #kwadrat{
+            background-color: aquamarine;
+            width: 200px;
+            height: 200px;
+            position: absolute;
+        }
+
+    </style>
+    <div id="kwadrat"></div>
+    
+    <script>
+        var kwadrat = document.getElementById("kwadrat");
+        var przeciaganie = false;
+        var pX;
+        var pY;
+
+
+        kwadrat.onmousedown = function(){
+            przeciaganie = true;
+            pX = zdarzenie.pageX - this.offsetLeft;
+            pY = zdarzenie.pageY - this.offsetTop;
+        }
+            kwadrat.onmouseup = function(){
+            przeciaganie = false;
+        }
+        document.onmousemove = function(zdarzenie){
+            if(przeciaganie){
+            let pozycjaX = zdarzenie.pageX;
+            let pozycjaY = zdarzenie.pageY;
+                if(kwadrat.offsetLeft > 0 && kwadrat.offsetLeft - 200 >= window.innerWidth)
+                    kwadrat.style.left = pozycjaX - pX + "px";
+                if(kwadrat.offsetTop > 0 && kwadrat.offsetTop - 200 <= window.innerHeight)
+                    kwadrat.style.top = pozycjaY - pY + "px";
+            }
+        }
+        window.innerHeight()
+    </script>
+</body>
+</html>

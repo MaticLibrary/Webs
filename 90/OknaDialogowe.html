@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OknaDialogowe</title>
+</head>
+<body>
+    <script>
+
+        /*
+        JS istneiejszą trzy rodzaje okien dialogowych wyswietlanych przez przeglądarke .
+        Do ich uruchamiania potrzebne są  funkcje i wymienamy :
+        -> alert()
+        -> prompt()
+        -> confirm()
+        Kazda z tych funkcji jest metoda obietkow WINDOW , Wygląd okien dialogowych zalezy od przegladarki
+
+        1.Alert - proste okienko dialogowe, informacyjne ,posiada jeden przycisk OK
+        */
+
+
+          //alert :na czas wyswietalnia okienka dialogowego wszelkie wczytywanie strony jest wstrzymane 
+          //Formatowanie treści , jest mozliwe ttylko za pomozna znacznikow oraz znakow specjalnych
+        alert("To jest\n komunikat...");
+        //prompt posiada tzw , pole tekstowe oraz dwa przyciski: "Ok" oraz "Anuluj"
+        //Sładnia: prompt("tresc komunikatu");
+
+       var imie = prompt(" Podaj swoje imie");
+       //prompt zwaraca wartosc jezeli zostanie wcisniety przycisk OK , Anuluj zwaraca za to wartosc NULL
+       document.write("witaj " + imie);
+
+
+        //Słuzy do potwierdzania operacji ... NIe posiada pola tekstowego ,ale posiada dwa przyciski: Ok, Anuluj...
+        //Funckja zwraca wartosc true po nacisnieciu OK oraz Wartosc false po nacisnieciu Anuluj
+        //Skłądani jest taka sama 
+       document.write("<hr>");
+    var odp = confirm("Czy lubisz Maliny ?");
+    document.write(odp);
+
+        /*
+        Istnieje mechanizm zapobiejacy wyswietlaniu zbyt duzej ilosci okien dialogywch dzialajych w niektorych przegladarkach
+        */
+
+        //ĆWIECZENIE pobierz od użytkownika dwie liczby dodaj je do siebie i wyswietl wynik prompt
+        //UWAGA wszystkie wartosci pobrane z prompt to wartosci wyrazowe !!
+        //NaN = Not a Number (nie liczba 
+        //
+
+        var liczba1 = prompt("Podaj wartosc1: ");
+        var liczba2 = prompt("Podaj wartosc2: ");
+        suma = parseInt(liczba1)+parseInt(liczba2);
+        document.write("<hr>");
+        document.write(suma);
+        document.write("<hr>");
+        document.write("<hr>");
+        document.write("<hr>");
+        document.write("<hr>");
+        document.write("<hr>");
+
+        ///////////////////////////////////////////////////////////////////
+        var tekst = prompt("Podaj tekst");
+        var odp = confirm("czy pogrubic tekst");
+        if(odp){
+            document.write("<b>" + tekst + "</br>");
+        }
+        else{
+            document.write(tekst);
+        }
+        ///////////////////////////////////////////////////////////////////
+        /*
+        var wartosc = prompt("Chcesz pogrubic tekst ? : tak/nie ");
+        wartosc = "tak";
+        if(wartosc==tak){
+            document.write("<b>" + tekst + "</br>");
+        }
+        else{
+            wartosc = nie;
+            document.write(tekst);
+        */
+
+        /*
+        Wrpwadz tekst za pomoca prompt czy pogrubic tekst za pomoca confirm w zaleznosci od uzyskanej odpowiedzi
+        */
+        document.write("<br>");
+        document.write("<br>");
+        // za pomoca promt zapytaj o liczbe i sprawdz czy liczba jest dodatnia czy nie,czy liczba miesic sie w przedziale 100,50, czy kwadrat tej liczby jest liczba parzysta  Math.sqrt()  Math.round() , math.ceil(), math.floor()   konwersja parseFloat(na liczbe zmienn przecinkowa)
+        var wartosc = parseFloat(prompt("Podaj wartosc"));
+        if(wartosc >0){
+            document.write("wartosc jest dodatnia");
+            document.write("<br>")
+        }
+        else{
+            document.write("wartosc jest ujemna");
+            document.write("<br>")
+        }
+
+        if((wartosc => -100) && (wartosc < 50)){
+            document.write("WWWartosc miesci sie w przedziale");
+            document.write("<br>")
+        }
+        else{
+            document.write("wartosc nie miesci sie w przedziale");
+            document.write("<br>")
+        }
+        if(wartosc*wartosc%2==0){
+            document.write("kwadrat wartosci jest liczba parzysta ");
+            document.write("<br>")
+        }
+        else{
+            document.write("kwadrat wartosci NIE jest liczba parzysta ");
+            document.write("<br>")
+        }
+        if(wartosc ){
+            document.write("kwadrat wartosci jest liczba parzysta ");
+            document.write("<br>")
+        }
+        else{
+            document.write("kwadrat wartosci NIE jest liczba parzysta ");
+            document.write("<br>")
+        }
+        var pierwiastek =Math.sqrt(wartosc);
+        if(pierwiastek == Math.round(pierwiastek)){
+            document.write("Pierwiastek jest calkowity...")
+            document.write("<br>");
+        }
+        //
+        /*
+        Cwiczenie 4 . pobierz od uzytkownika wspolcznynniki rownania kwadratowego A, B i C ,wypisz rownanie na kran oraz rozwiaz go .Dokonaj sprawdzenia popranowsci wprowadzonych danych.
+        */
+
+        document.write("<br>");
+        document.write("<hr>");
+        var numer1 = parseFloat(prompt("Podaj wartosc numer 1"));
+        var numer2 = parseFloat(prompt("Podaj wartosc numer 2"));
+        var numer3 = parseFloat(prompt("Podaj wartosc numer 3"));
+        var delta = numer2*numer2-4*numer1*numer2;
+        if(delta>0){
+        document.write("Wartosc delty to: ")
+        document.write(delta);
+        document.write("<hr>");
+        }
+        else{
+            document.write("Delta jest ujemna  ")
+            document.write("<hr>");
+        }
+        document.write("y = " + numer1 + "x<sup>2</sup> + "+ numer2 +" x " +"+"+ numer3);
+
+                
+
+        
+
+
+
+
+    </script>
+</body>
+</html>

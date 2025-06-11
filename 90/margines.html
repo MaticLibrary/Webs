@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARGINES</title>
+</head>
+<body>
+
+    <!--
+        Modele WYMIAROWANIA
+        -model pudełkowy (boc model) - content-box
+        -model Quirks - border-box
+        Ustalenie wykorzystanego modelu umożliwia własność box-sizing
+        W borderbox marginesy wewnetrzne oraz obramowania są dodawane wewnątrz elementu i nie wpływają na jego rozmiar
+
+        MArgines WEWNĘTRZNY (padding)
+        - własnośći pojedyncze: padding-top, padding-bottom, padding-left, padding-right
+        -atrybut mieszany - padding (1,2 ,3 ,4 )
+        -wartosci: jednostki, dlugosci, jednostk
+
+        Margines zewnętrzny (margin)
+        -   
+
+    -->
+
+    <style>
+        #id1, #id2, #id3{
+            width: 400px;
+            height: 300px;
+        }
+
+        #id1{
+            background-color: antiquewhite;
+            border: 20px dashed red;
+            padding: 20px;
+        }
+        #id2{
+            background-color: brown;
+            border: 20px dashed white;
+            padding: 20px;
+            
+        }
+        #id3{
+            background-color: cyan;
+            padding-bottom: 40px;
+            padding-left: 60px;
+            box-sizing: border-box;
+        }
+    </style>
+    
+    <div id="id1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, voluptate error! Natus, dolorem. Qui tempora aspernatur, dolor quas nulla reiciendis consectetur impedit dicta atque est veniam autem numquam, odit corrupti? </div>
+    <div id="id2"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi totam provident possimus molestiae maxime sit vel enim iusto a, quod nostrum at animi labore deserunt dolores esse error eius quis.</div>
+    <div id="id3"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Et necessitatibus est architecto dolorum natus nostrum delectus aut consequuntur mollitia aliquam praesentium cum, ab ducimus voluptatum soluta accusamus. Quis, explicabo est.</div>
+<hr>
+    <style>
+        #id4{
+            width: 500px;
+            height: 400px;
+            background: url('shrek.jpg') no-repeat;
+            background-size: cover;
+            color: white;
+            border: dashed 40px red;
+            padding: 50px;
+            background-clip: border-box;
+            background-origin: border-box;
+
+        }
+    </style>
+
+    <div id="id4">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat optio asperiores delectus eos, recusandae ea nostrum placeat aspernatur delenit
+        i corrupti neque a ullam possimus, excepturi, suscipit quos quaerat molestias. Nisi!</div>
+
+<hr>
+<style>
+    #link{
+        background-color: aqua;
+        border:  10px dashed green;
+        padding: 20px;
+        margin: 40px;
+    }
+    #sp{
+        background-color: aquamarine;
+        border: 10px dashed red;
+        padding: 20px;
+        margin: 80px;
+    }
+    #st{
+        background-color: blanchedalmond;
+    }
+
+    
+
+</style>
+
+<a href="#" id="link">LINK</a>
+<span id="sp">SPAN</span>
+<strong id="st">STRONG</strong>
+
+<!--
+    UWAGA:
+    w Przypadku elementów liniowych marginesy dolne oraz górne , a takze obramowania gorne orz dolne nie dzialaja tak jak w przyoadki elementow blokowych- nie zamkuja miejsca w zadnych moedli wy
+    miarowania . Marginesy nie maja w ogole zastosowania
+-->
+<hr>
+<style>
+    td{
+        border: 3px solid black;
+        padding: 20px;
+        margin: 40px;
+    }
+    table{
+        border-collapse: collapse;
+    }
+</style>
+
+<table>
+    <tr>
+    <td>Raskov</td>
+    <td>Sasha</td>
+    <td>Damina</td>
+    <td>MaKash</td>
+    </tr>
+    <tr>
+        <td>Raskov</td>
+        <td>Sasha</td>
+        <td>Damina</td>
+        <td>MaKash</td>
+        </tr>
+        <tr>
+            <td>Raskov</td>
+            <td>Sasha</td>
+            <td>Damina</td>
+            <td>MaKash</td>
+            </tr>
+            <tr>
+                <td>Raskov</td>
+                <td>Sasha</td>
+                <td>Damina</td>
+                <td>MaKash</td>
+                </tr>
+
+    <hr>
+
+    <style>
+        #id5{
+            width: 400px;
+            height: 400px;
+            background-color: aquamarine;
+            margin: 0 auto;
+        }
+    </style>
+
+    <div id="id5"></div>
+
+
+</table>
+
+<!--
+    Rozmairy elementów
+    -   width - szerokosc
+    - height - wysokosc
+    min-width
+    max-width
+    min-height
+    max-height
+
+-->
+
+
+<style>
+
+#id6{
+    width: 50%;
+    height: 200px;
+    background-color: mediumaquamarine;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    min-width: 300px;
+    max-width: 500px;
+}
+
+</style>
+
+<div id="id6"></div>
+<!--
+    Aby mozliwe było ustawienie procentoiwe wysokosci elementu koneczne jest zdefiniowane sykosci dla wszystkich elementow nadrzednych dotyczy to rowniez elementu body
+    HTML
+-->
+
+</body>
+</html>

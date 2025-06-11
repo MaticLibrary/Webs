@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pozycjonowanie</title>
+</head>
+<body>
+
+    <!--
+        Do określania pozycji elementów służy własność postion.
+        wartosc position decyduje jak bedzie pozycjonowany wxgledem innych elementów, lub okna przeglądarki
+        wartości:
+        -   static (domyślna)
+        -   relative - pozycja relatywna - dzieci
+        (elementy podrzędne) będą pozycjonowane względem tego elementu
+        -   absolute - pozycja absolutna - pozycjonowanie będzie się odbywało względem zewnętrznych krawędzi marginesów wewnętrznych elementów rodzica
+        posiadającego pozycję inną niż staytyczna.
+        -   fixed - pozycja ustalona - pozycjonowanie tego elementu odbywa się zawsze względem okna przeglądarki
+        
+        Aby możliwe było pozycjonowanie za pomocą własnośći position konieczne jest określenie parametrów za pomocą własnośći:
+        -   left
+        -   right
+        -   bottom
+        -   top
+
+        Jeżeli elementy będą na siebie nachodzić to potrzebne jest ustalenie w jakiej kolejności będą wyswietlane 
+        UWAGA: domyślnie koleność elementów jest ustalana przez kolejnosć ich występowania w kodzie 
+        Do zmiany tej kolejności wykorzystuje się własność z-index przyjumującą wartości liczbowe 
+        UWAGA: Własności z-index nie ma wpływu na pozycję elementów pozycjonowanych statycznie
+
+        UWAGA:
+        1. włanosć left ma piorytet nad własnością right a top nad bottom
+        2. 
+        3. Nadanie pozycji ustalonej wyrenderowanej elementu w takiej pozycji znalazłby sie jako statyczny i pozostawanie w tej pozycji mimo 
+        scrolowania zawartosci strony.
+
+    -->
+    <style>
+        #kontener{
+            width: 500px;
+            height: 500px;
+            background-color: bisque;
+            padding: 20px;
+            border: 10px dashed black;
+            margin: 100px;
+            position: relative;
+        }
+        #test1{
+            width: 200px;
+            height: 200px;
+            background-color: brown;
+            position: absolute;
+            left: -50px;
+            top: 140px;
+            z-index: 10;
+
+        }
+        #test2{
+            width: 300px;
+            height: 300px;
+            background-color: burlywood;
+            position: absolute;
+            left: 5px;
+            top: 0px;
+            z-index: 5;
+        }
+
+        #test3{
+            width: 400px;
+            height: 400px;
+            background-color: greenyellow;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+
+        }
+        #test4{
+            width: 250px;
+            height: 250px;
+            background-color: goldenrod;
+            position: fixed;
+        }
+        #test5{
+            width: 350px;
+            height: 350px;
+            background-color: orangered;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 7;
+            
+        }
+    </style>
+
+    <div id="kontener"> 
+
+        <div id="test1"></div>
+        <div id="test2"></div>
+        <div id="test3"></div>
+        <div id="test4"></div>
+        <div id="test5"></div>
+    </div>
+
+    
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninja</title>
+</head>
+<body>
+
+    <style>
+        #etykieta{
+            background-color: darkblue;
+            color: white;
+            padding: 10px;
+            font-size: 20px;
+            position: absolute;
+            border-radius: 10px;
+            
+        }
+        img{
+            width: 150px;
+            height: auto;
+        }
+        #menu{
+            position: absolute;
+            background-color: black;
+            padding: 10px;
+            border-radius: 10px;
+            
+
+        }
+        #menu a{
+            display: block;
+            color: white;
+            font-size: 20px;
+            padding: 10px;
+            text-decoration: none;
+
+
+        }
+        #menu :hover{
+            background-color: darkgreen;
+
+        }
+    </style>
+     
+    <img src="ninja.png" id="klient1" alt="Jan Kowalski">
+    <img src="ninja.png" id="klient2" alt="Jan Nowak">
+    <img src="ninja.png" id="klient3" alt="Wiesława Kowalska">
+    <img src="ninja.png" id="klient4" alt="Jan Zdarova">
+    <img src="ninja.png" id="klient5" alt="Ivan Tarkov">
+    <img src="ninja.png" id="klient6" alt="Pape Sasha">
+
+    <div id="etykieta">Przykład </div>
+
+    <div id="menu">
+        <a href="#" id="imienazwisko">imienazwisko </a>
+        <a href="#" id="mail">mail </a>
+        <a href="#" id="blokada">blokada </a>
+
+    </div>
+
+
+    <script>
+        var klienci = document.getElementsByTagName('img');
+        var etykieta = document.getElementById("etykieta");
+        var menu = document.getElementById('menu');
+        var imienazwisko = document.getElementById('imienazwisko');
+        var mail = document.getElementById('mail');
+        var blokada = document.getElementById('blokada');
+
+
+        var aktualny = null;
+
+
+        document.onclick = function(){
+            menu.style.display= "none";
+            // aktualny = null;
+        }
+
+        for(i=0;i<klienci.length;i++){
+            klienci[i].onmouseover = function(){
+                etykieta.style.display = "block";
+                etykieta.innerHTML = this.getAttribute('alt');
+            }
+            klienci[i].onmouseout = function(){
+                etykieta.style.display = "none";
+
+            }
+            klienci[i].onmousemove = function(zdarzenie){
+                etykieta.style.top = zdarzenie.pageY + 10 + "px";
+                etykieta.style.left = zdarzenie.pageX + 10 + "px";
+            }
+            klienci[i].oncontextmenu = function(zdarzenie){
+                imienazwisko.innerHTML = this.getAttribute('alt');
+                menu.style.top = zdarzenie.pageY + "px";
+                menu.style.left = zdarzenie.pageX + "px";
+                menu.style.display = "block";
+                aktualny = this;
+
+                if(this.getAttribute('src') == "ninja.png"){
+                    blokada.innerHTML = "blokada";
+                } else{
+                    blokada.innerHTML = "odblokuj";
+                }
+
+                return false;
+            }
+        }
+
+        blokada.onclick = function(){
+            if(this.innerHTML == "blokada"){
+                aktualny.src = "ninja2.png";
+            } else{
+                aktualny.src = "ninja.png";
+            }
+        }
+
+        mail.onclick = function(){
+            if(aktualny.getAttribute('src') == "ninja.png") {
+                let adresat = aktualny.getAttribute('alt');
+                alert("wiadomosc wysłana do: " + adresat);
+            } else {
+                alert("nie mozna wyslac do zablokowanego uzytkownika...")
+            }
+        }
+
+    </script>
+    
+
+</body>
+</html>

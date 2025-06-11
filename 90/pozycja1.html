@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pozycja</title>
+</head>
+<body>
+
+    <style>
+        #menu a{
+            display: inline-block;
+            padding: 10px;
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            width: 150px;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+
+        }
+        #z1 , #tekst1{
+            background-color: burlywood;
+            z-index: 3;
+        }
+        #z2 , #tekst2{
+            background-color: blanchedalmond;
+            z-index: 2;
+        }
+        #z3 , #tekst3{
+            background-color: blueviolet;
+            z-index: 1;
+        }
+        #kontener{
+            border: 1px solid black;
+            width: 100%;
+            height: 500px;
+            position: relative;
+        }
+        #kontener div{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+
+    </style>
+    
+    <div id="menu">
+        <a href="#" id="z1">zakladka 1</a>
+        <a href="#" id="z2">zakladka 2</a>
+        <a href="#" id="z3">zakladka 3</a>
+    </div>
+    <div id="kontener">
+        <div id="tekst1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut fugiat nam nostrum debitis totam obcaecati praesentium illum perspiciatis,
+             quasi ea nisi non qui quisquam sint ipsum sequi cupiditate deleniti suscipit?</div>
+        <div id="tekst2">to jest tekst 2</div>
+        <div id="tekst3"> to jest tekst 3</div>
+    </div>
+    <script>
+        var z1 = document.getElementById('z1');
+        var z2 = document.getElementById('z2');
+        var z3 = document.getElementById('z3');
+        var tekst1 = document.getElementById('tekst1');
+        var tekst1 = document.getElementById('tekst2');
+        var tekst1 = document.getElementById('tekst3');
+
+        z1.onclick = function(){
+            tekst1.style.zIndex=1000;
+            tekst2.style.zIndex=0;
+            tekst3.style.zIndex=0;
+        }
+        
+        z2.onclick = function(){
+            tekst1.style.zIndex=0;
+            tekst2.style.zIndex=1000;
+            tekst3.style.zIndex=0;
+        }
+        
+        z3.onclick = function(){
+            tekst1.style.zIndex=0;
+            tekst2.style.zIndex=0;
+            tekst3.style.zIndex=1000;
+        }
+    </script>
+
+</body>
+</html>

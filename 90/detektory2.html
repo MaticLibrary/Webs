@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detektory2</title>
+</head>
+<body>
+
+    <!--
+        onmousedown - wcisniecie klawisza myszy
+        onmouseup - puszczenie klawisza myszy
+
+        Cwiczenie 1
+        Utworz div z wybranym kolorem tła. Zmieniaj kolor w momencie przycisniecia klawisza oraz w momencie jego zwolnienia
+
+        Cwiczenie 2 
+        Wstaw dwa obrazki na strone o tym samym rozmiarze . Jeden z nich ukryj. Po wcisnieciu klawisza na pierwszym obrazku pokazuj drugi.
+        Po zwolnieniu wracaj do pierwszego .
+
+        Cwiczenie 3
+        Wstaw  na strone div z wybvranum kolorem tła.Zmien kolor po dwytkrotnym kliknieciu. Kolejne dwukrotne klknioecie powinno przywrocic pierwotny kolor.
+
+
+
+        oncontextmenu - wykrywa wywołanie menu kontekstowego
+
+        Cwiczenie 4
+        Wstaw  div na strony i po kliknieciu go prawym klawiszem myszy wyswietl komunikat. Zapobiegaj wyswietlaniu menu konstekstowego 
+
+        onmousemove - detektor wykrywania poruszania sie kursorem
+
+        Cwiczenie 5 
+        Wstaw div z cyfrą zero, Ustaw detektor poruszania kursorem myszy dla całego dokumentu, tak aby zwiększał się licznik  w trakcie ruchu
+
+    -->
+
+    <div style="background-color: brown; width: 100px; height:  100px ;" id="blok1"></div>
+    <hr>
+    <img src="testowe.png" id="obrazek1">
+    <img src="testowe.png" id="obrazek2" style="display: none;">
+    <hr>
+    <div style="background-color: blueviolet; width: 300px; height: 300px;" id="b2"></div>
+
+<script>
+    document.getElementById("b2").ondblclick = function(){
+        if(this.style.backgroundColor != "green")
+        this.style.backgroundColor = "green";
+        else
+        this.style.backgroundColor = "bisque";
+    }
+</script>
+
+    <script>
+        document.getElementById("obrazek1").onmousedown = function(){
+            this.style.display = "none";
+            document.getElementById("obrazek2").style.display="inline";
+        }
+        document.getElementById("obrazek2").onmouseup
+    </script>
+
+
+    <script>
+        var b1 = document.getElementById('blok1');
+        b1.onmousedown = function(){
+            this.style.backgroundColor = "red";
+        }
+        b1.onmouseup = function(){
+            this.style.backgroundColor = "brown";
+        }
+
+
+    </script>
+</body>
+</html>

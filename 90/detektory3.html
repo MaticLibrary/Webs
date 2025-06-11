@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detektory zdarzen </title>
+</head>
+<body>
+
+    <!-- 
+        ONSCROLL 
+        Zdarzenie, ktore wykrywa ten detektor to scrollowanie zawartosci strony, elementu itd.
+        UWAGA:
+            Aby detektor zadziałał zawartość musi być na tyle długa aby się dało scrollować .
+        Własnośći:
+            - window.pageXOffset - ile pikseli przewinięto w poziomie 
+            - window.pageYOffset - ile pikseli przewinięto w pionie
+        Metoda:
+            scrollTo(x, y) - metoda pozwalająca na ustawienie wartości przescrollowania w poziomie oraz w pionie
+        Własnosci elementow:
+        -    offsetTop - odleglosc eleementu od gory
+        -   offsetLeft
+    
+    
+
+        Cwiczenie 1
+        Zmieniaj kolor tła w zależnosci od ilosci przescrollowanych w pionie pikseli:
+        - ponizej 200 - biały
+        - powyzej 200+ - czerwony
+        - 500+ -zielony
+        - 1000+ - zółty
+        - 2000+ - niebieski
+
+
+        Cwiczenie 2
+        Zmien kolor tla elementu blok2 po doscrollowaniu do niego.
+
+
+    -->
+
+    <style>
+        #blok1 {
+            width: 500px;
+            height: 1000px;
+            background-color: blueviolet;
+            font-size: 40px;
+        }
+
+        #blok2 {
+            width: 5500px;
+            height: 500px;
+            font-size: 40px;
+            background-color: darkgoldenrod;
+        }
+        #blok3{
+            width: 500px;
+            height: 1000px;
+            font-size: 40px;
+            background-color: aqua;
+        }
+
+        #licznikX{
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: blueviolet;
+            font-size: 40px;
+            color: white;
+            padding: 20px;
+        }
+        #licznikY{
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: burlywood;
+            font-size: 40px;
+            color: white;
+            padding: 20px;
+        }
+
+        button{
+            font-size: 40px;
+        }
+
+
+    </style>
+
+    <div id="licznikX">0</div>
+    <div id="licznikY">0</div>
+
+    <button id="przesun"> Przescrolluj ekran</button>
+
+    <div id="blok1"> </div>
+    <div id="blok2"> </div>
+    <div id="blok3"> </div>
+
+    <script>
+        var x = document.getElementById('licznikX');
+        var y = document.getElementById('licznikY');
+        var b1 = document.getElementById('blok1');
+        var b2 = document.getElementById('blok2');
+        var b3 = document.getElementById('blok3');
+
+        window.onscroll = function(){
+            x.innerHTML = Math.round(window.pageXOffset);
+            y.innerHTML = Math.round(window.pageYOffset);
+
+            //cwiczenie 1
+            if(window.pageYOffset <200) document.body.style.backgroundColor = "white";
+            if(window.pageYOffset >= 200 && window.pageYOffset < 500) document.body.style.backgroundColor = "red";
+            if(window.pageYOffset >= 500 && window.pageYOffset < 1000) document.body.style.backgroundColor = "green";
+            if(window.pageYOffset >= 1000 && window.pageYOffset < 2000) document.body.style.backgroundColor = "blue";
+
+        }
+
+        //cwioczenie 2
+        if(window.pageYOffset >= b2.offsetTop) b2.style.backgroundColor = "violet";
+
+
+
+
+
+
+        document.getElementById("przesun").onclick = function(){
+            window.scrollTo(1000,500);
+        }
+
+        
+
+        b1.innerHTML = "góra: " + b1.offsetTop + ", lewa: " +b1.offsetLeft;
+        b2.innerHTML = "góra: " + b2.offsetTop + ", lewa: " +b2.offsetLeft;
+        b3.innerHTML = "góra: " + b3.offsetTop + ", lewa: " +b3.offsetLeft;
+        
+    </script>
+
+
+    
+</body>
+</html>

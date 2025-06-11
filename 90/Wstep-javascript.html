@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>//Skrypt mozna implementować w każym miejscy w kodzie źródłowym strony internetowe</script>
+</head>
+<body>
+    <!-- Skrypt z pliku zewntecznego-->
+
+    <script src="biblioteka.js"></script>
+
+    <!-- Jest to skrypt lokalny -->
+    <script>
+        // to jest komentarz jednolinijkowy
+
+        /* 
+        to 
+        jest komentarz 
+        wielo linijkowy 
+        */
+
+        // funkcja write wypisuje na ekran tekst podany jako argument :
+        document.write("to jest wynik dzialania skryptu ");
+        // document - jest to obiekt reprezentujący cały dokument HTML
+        // write - metoda wyświetlająca tekst podany jako argument
+        // tekst podajemy w cudzysłowie lub apostrofie
+        //Każdą instrukcje w JS kończy średnik;
+
+        //zmienne, funkcje itd. zdefinowane w jednym bloku są widoczne we wszystkich blokach w dukmencie 
+
+        //Błędy 
+        //kod w JS jest wykonywany linijka po linije do napotkania błędu , po wystąpieniu błędu wszystkie kolejne linijki kodu zostaną zignorowane 
+        document.write("tekst");
+        document.write("Działa tekst")
+    </script>
+</body>
+</html>
+<script>//bloków z skryptem może być dowolna liczba </script>

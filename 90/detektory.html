@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detektory</title>
+</head>
+
+<body>
+
+    <!--    
+        Zdarzenie:
+            Zdarzenie nazywamy praktycznie kazdą interakcje uzytkownika z nasza witryna. Zdarzeniem moze byc:
+            Klikniecie msyza, nacisniecie klawisza, ruch kursorem, przewiniecie itp.
+        
+        Sposoby rejestrowania zdarzen:
+            Zdarzenie moze byc zarejestrowane na kazdym obiekcie drzewa DOM
+        Sposob (zły):
+            <a href="#" onclick="funkcja()">Kliknij </a>
+            Sposob dziala, ale nie jest dobry ze wzgledu na mieszanie kodu HTML z JS
+        Sposob (dobry):
+            <a href="#" id="klik" > kliknij </a>
+            <script>
+                document.getElementById('klik').onclick = 
+                funkcja;
+            </script>
+
+
+
+    -->
+
+    <button id="przycisk">BUTTON</button>
+    <script>
+        var b = document.getElementById('przycisk');
+        // PRZYPISANIE FUNKCJI
+        function klik() {
+            alert("klikąłes przycisk");
+        }
+        b.onclick = klik;
+    </script>
+
+
+    <hr>
+
+
+    <button id="klawisz">kliknij mnie</button>
+    <script>
+        var bu = document.getElementById('klawisz');
+        //Przypisanie funkcji anonimowej
+        bu.onclick = function () {
+            alert("nacisnales drugi przycisk");
+        }
+        bu.onclick = function () {
+            alert("nacisnales drugi raz drugi przycisk");
+        }
+    </script>
+
+
+    <hr>
+
+
+    <button id="button">Klik</button>
+    <script>
+        var button = document.getElementById('button');
+        //Przypisanie event listenera
+        //1. Wykorzystanie gotowej funkcji
+        function klikacz() {
+            alert('klikacz');
+        }
+        button.addEventListener('click', klikacz);
+        //2. wykorzystanie funkcji anonimowej
+        button.addEventListener('click', function () {
+            alert('Alert klikacza');
+        })
+    </script>
+    <!--    
+        Uzycie standardowych metod (np. onclick) powoduje nadpisanie detektorow, natomiast wykorzystanie Event Listernera umozliwa przypisanie wiekszej ilosci funkcji do tego samego zdarzenia
+
+    -->
+    <script>
+        //wyrejestrowanie zdarzen
+        bu.onclick = null;
+        button.removeEventListener('click', klikacz);
+    </script>
+
+    <!--    
+        Bąbelkowe przechwytywanie zdarzen
+
+
+    -->
+    <center>
+        <div id="czerwony" style="width: 40%; height: 20%;background-color: sandybrown;">
+            <div id="zolty" style="width: 20%; height: 20%; background-color: aqua;" ;>
+                <div style="width: 50px;height: 100px; background-color: darkgoldenrod;">
+                </div>
+            </div>
+        </div>
+    </center>
+    <script>
+        document.getElementById('czerwony').onclick = function (e) {
+            alert('kliknieto czerwony div');
+            e.stopPropagation();
+        }
+        document.getElementById('zolty').addEventListener('click', function (z) {
+            alert('kliknieto zolty div');
+            z.stopPropagation();
+        }, true);
+    </script>
+
+    <!--
+        Cwiczenie 1.
+            Utworz div z tlem koloru czerwonego , zaprogramuj przycisk zmieniajacy kolor tla na zielony.
+    -->
+    <hr>
+    <center>
+        <h1>cwiczenie 1</h1>
+    </center>
+    <hr>
+    <div id="cz" style="width: 200px;height: 200px;background-color: red;">
+        <center>klik</center>
+    </div>
+    <button id="zamiana"> zmien kolor</button>
+    <script>
+        var cz = document.getElementById('cz');
+        var zm = document.getElementById('zamiana');
+
+        zm.onclick = function () {
+            if (cz.style.backgroundColor == "red")
+                cz.style.backgroundColor = "green";
+            else
+                cz.style.backgroundColor = 'red';
+        }
+
+    </script>
+    <hr>
+    <!-- cwiczenie 2
+        spraw aby po ponownym przycisniecu kolor sie zmienial na pierwszy
+    -->
+    <!--
+        Utworz div , 100x100 i zaprogramuj 3 przyciski, 1 zmieniajcy rozmiar div 50x50, drugi zmieniajcy rozmar div na 100x100, oraz trzeci 200x200
+    -->
+    <hr>
+   
+
+
+<!-- 
+
+    Cwiczenie 4.
+    utworz dwa pola tekstowe lub liczbowe i zaprogramuj przycisk ktory pobierze liczby z tych pol, wykona na nich operacje 
+    arytmetyczne i wyswietli w postaci komunikatu, przed dzieleniem sprawdz czy druga liczba nie jest zerem
+
+    Cwiczenie 5.
+    Utworz kalkulator z 4 przyciskami +-/* i wyswietlaj wynik dzialan w osobnym polu
+
+    Cwiczenie 6. 
+    zaprojektor oraz zaprogramuj gre w kolko i krzyzyk
+-->
+
+<hr>
+
+<hr><hr><hr>
+<div>
+<input type="text" id="liczba1">
+<input type="text" id="liczba2">
+<button id="oblicz">OBLICZ</button>
+</div>
+
+<script>
+    var pole1 = document.getElementById('liczba1');
+    var pole2 = document.getElementById('liczba2');
+    var przycisk = document.getElementById('oblicz');
+
+    przycisk.onclick = function() {
+        var a = parseFloat(pole1.value);
+        var b = parseFloat(pole2.value);
+        var dod = a+b;
+        var od = a-b;
+        var mno = a*b;
+        if (b != 0) var dz= a/b;
+
+        alert("dodawanie: "+dod+" odejmowanie : "+od+" mnożenie: "+mno+" dzielenie: "+dz);
+        
+    }
+
+</script>
+
+
+<hr><hr><hr>
+
+<!--
+<div>
+    <input type="text" id="liczbaA">
+    <input type="text" id="liczbaB">
+
+
+    <input type="text" id="wynik"  value="wynik" readonly>
+
+    <button id="+">+</button>
+    <button id="-">-</button>
+    <button id="/">/</button>
+    <button id="*">*</button>
+    </div>
+
+    <script>
+        var liczba1 = document.getElementById('liczbaA');
+        var liczba2 = document.getElementById('liczbaB');
+        var przycisk1 = document.getElementById('+');
+        var przycisk2 = document.getElementById('-');
+        var przycisk3 = document.getElementById('/');
+        var przycisk4 = document.getElementById('*');
+        
+    
+        przycisk.onclick = function() {
+
+            var a = parseFloat(liczba1.value);
+            var b = parseFloat(liczba2.value);
+            var dod = a+b;
+            var od = a-b;
+            var mno = a*b;
+            if (b != 0) var dz= a/b;
+    
+            alert("dodawanie: "+dod+" odejmowanie : "+od+" mnożenie: "+mno+" dzielenie: "+dz);
+            }
+    </script> 
+    -->
+    <hr>
+   
+    <style>
+        td {
+            width: 100px;
+            height: 100px;
+            font-size: 80px;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+    
+    <table cellpadding="10" cellspacing="0" border="1">
+        <tr>
+            <td id="p1" ></td>
+            <td id="p2" ></td>
+            <td id="p3" ></td>
+        </tr>
+        <tr>
+            <td id="p4" ></td>
+            <td id="p5" ></td>
+            <td id="p6" ></td>
+        </tr>
+        <tr>
+            <td id="p7" ></td>
+            <td id="p8" ></td>
+            <td id="p9" ></td>
+        </tr>
+    </table>
+    <script>
+        var ruch = "X";
+                var p1 =  document.getElementById('p1');
+                var p2 =  document.getElementById('p2');
+                var p3 = document.getElementById('p3');
+                var p4 =  document.getElementById('p4');
+                var p5 = document.getElementById('p5');
+                var p6 =  document.getElementById('p6');
+                var p7 =  document.getElementById('p7');
+                var p8 =  document.getElementById('p8');
+                var p9 = document.getElementById('p9');
+    
+        function sprawdzCzyWygrana(){
+            var zwyciezca = " ";
+            if(p1.innerHTML == p2.innerHTML && p2.innerHTML == p3.innerHTML && p3.innerHTML != "") zwyciezca = p1.innerHTML;
+            if(p4.innerHTML == p5.innerHTML && p5.innerHTML == p6.innerHTML && p6.innerHTML != "") zwyciezca = p4.innerHTML;
+            if(p7.innerHTML == p8.innerHTML && p8.innerHTML == p9.innerHTML && p9.innerHTML != "") zwyciezca = p7.innerHTML;
+            // kolumny
+            if(p1.innerHTML == p4.innerHTML && p4.innerHTML == p7.innerHTML && p7.innerHTML != "") zwyciezca = p1.innerHTML;
+            if(p2.innerHTML == p2.innerHTML && p5.innerHTML == p5.innerHTML && p8.innerHTML != "") zwyciezca = p2.innerHTML;
+            if(p3.innerHTML == p6.innerHTML && p6.innerHTML == p9.innerHTML && p9.innerHTML != "") zwyciezca = p3.innerHTML;
+            //skosky
+            if(p1.innerHTML == p5.innerHTML && p5.innerHTML == p9.innerHTML && p9.innerHTML != "") zwyciezca = p1.innerHTML;
+            if(p3.innerHTML == p5.innerHTML && p5.innerHTML == p7.innerHTML && p7.innerHTML != "") zwyciezca = p3.innerHTML;
+            
+        }
+
+
+
+        function klik(){
+            if(this.innerHTML == ""&& sprawdzCzyWygrana() == " "){
+                this.innerHTML=ruch;
+                if(ruch=="X") ruch ="O";
+                else ruch ="X";
+                if(sprawdzCzyWygrana() != ""){
+                    alert("Wygral gracz: "+ sprawdzCzyWygrana());
+                }
+            }
+        }
+        
+
+       document.getElementById('p1').onclick = klik;
+       document.getElementById('p2').onclick = klik;
+       document.getElementById('p3').onclick = klik;
+       document.getElementById('p4').onclick = klik;
+       document.getElementById('p5').onclick = klik;
+       document.getElementById('p6').onclick = klik;
+       document.getElementById('p7').onclick = klik;
+       document.getElementById('p8').onclick = klik;
+       document.getElementById('p9').onclick = klik;
+            
+    </script>
+</body>
+
+
+
+</html>
+
+
+
+
+

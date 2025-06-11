@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elementy blokowe i liniowe</title>
+</head>
+<body>
+
+    <!-- Podział elementów HTML
+        Jest to podział ze względu na ilość zamjowanego miejsca :
+        -   liniowe ,zajmuja tyle samo miejsca ile same potrzebuja ,pozostawiajac miejsce w tej samej lini dla innych elementów 
+        Przykłady:
+        <a>, <b>, <em> ,<i> , <img>, <strong>, ...
+        -   blokowe
+        Zawsze  wyswietlane są w nowej lini i zajmują cała jej powierzchnię
+        kolejne elementy są wyświetlane poniżej .
+        Przykłady:
+        <h1>, <p>, <ol>, <table>,  <div>, <section>, ...
+
+        Mozemy stworzyc elementy blokowo liniowe
+        nie istnieje zaden elementy ktory domyslnie mialby takie wlasnosci.
+        ustawiaja sie w jednej linii zachowujac część cech elementów blokowych.
+    -->
+
+    <a href="#" style="background-color: khaki;"> LINK1 </a>
+    <a href="#" style="background-color: aquamarine;">lore </a>
+    <strong href="#" style="background-color: blueviolet;"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus harum accusamus odit quam impedit ex eveniet ullam labore, quae inventore, incidunt dolore qui quibusdam quisquam quos consequatur? Vel, molestiae sint?</strong>
+    <img src="testowe.png">
+    <div style="background-color: blueviolet;"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime cumque inventore quo tenetur fugit deleniti? Cupiditate vel aperiam necessitatibus ab voluptatum nihil autem numquam quidem, fuga consectetur, id dignissimos ad. </div>
+    <h3 style="background-color: cadetblue;">Naglowek 3 stopnia </h3>
+
+    <!-- 
+        Selektory:
+        -   Identyfikatory 
+            Każdy element moze być w sposób unikatowy identyfikowany na podstawie nadanej nazwy. Do nadawania takich nazw służy atrybut ID
+            PRZYKŁAD:
+            <div id="blok"></div>
+        -   Klasy
+        Zbiór elementów HTML o tej samej nazwie .Utworzenie zbioru umożliwa tworzenie CLASS
+        PRZYKŁAD:
+        <selcetion class="elementy"></selection>
+        <a href="" class="elementy" ></a>
+
+    -->
+
+    <div id="blok ">To jest blok</div> 
+    <!--Błedem jest nadanie takiego samego identyfikatora -->
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+/*  
+W tym pliku nie umieszcza sie zadnych znacznikow html. Umieszczamy tu wyłączenie slektory oraz reguły css
+
+*/
+
+
+#zew{
+    background-color: bisque;
+    width: 300px;
+    height: 400px;
+    margin-left: 50%;
+
+
+}
+#blok{
+    background-color: crimson;
+}
+#cwiczenie{
+    background-color: mediumaquamarine ;font: 25px Arial;width:450px; height:800px;
+        
+}
+
+#blok3{
+    background-color: goldenrod;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

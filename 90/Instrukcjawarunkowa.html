@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        
+        /*
+        INSTRUKCJA WARUNKOWA - rozgałęzienie w programie ,podjęcie decyzji na podstawie dziełań użytkownika lub wcześniejszych operacji w programie 
+        SKładnaia intrykcji warunkowej:
+        1. wyrażenie warunkowe -zwraca wartośćw zależności od warunku 
+        Składania:
+            zmienna = (warunek) ? wartość jeżeli warunek spełniony 
+            : wartość jeżeli warunek nie jest spełniony;
+
+        */
+        var zamowionaIlosc = 30;
+        var cenaZaSzt = (zamowionaIlosc < 60) ? 30 : 20
+        document.write(cenaZaSzt);
+        document.write('<hr>');
+
+        /*
+            2.klasyczna intrukcja warunkowa - umozliwa zdefiniowanie bloku operacji które będą wykonywane w zależności od warunku 
+            Składnia:
+                if (warunek) {blok kodu wykonywany jeżeli warunek jest spełniony }
+                else{
+                    blok kodu wykonywany wtedy ,jeżeli warunek zwróci fałsz
+                } 
+
+        */
+
+        zamowionaIlosc = 20;
+        if(zamowionaIlosc < 60){
+             cenaZaSzt = 30
+             document.write("NIe dostaniesz znizki ,cena za szt to "+ cenaZaSzt);
+        }
+        else{
+            cenaZaSzt = 20;
+            document.write("Dostaniesz znizke, twoja cena to : "+ cenaZaSzt);
+
+        }
+        /*
+            3.Intrukcja wielowarunkowa - umożliwa sprawdzenie większej ilości warunków 
+            UWAGA!!!!!!! Intrukcja warunkowa wykona tylko jeden blok kodu , ten w którym zdefniowano warunek właściwy 
+            SKŁADNIA:
+            if(warunek1){
+                Intrukcja jeżeli warunek1 to prwada
+            }
+            else if(warunek2){
+                Intrukcja jezeli warunek2 to prawda
+            }
+            ...
+            else{
+                Intrukcja jezeli zaden z powyzszych warunkow nie dal prawdy
+            }
+
+        */
+            document.write("<hr>");
+        var x = 3;
+        var y = 6;
+
+        if(x > y){
+            document.write("X jest wiekszy ");
+        }
+        else if(x<y){
+            document.write("X jest mniejszy od Y");
+        }
+        else{document.write("liczby są równe ")};
+
+
+        /*
+        4.Intrukcja wielowarunkowa switch -  uproszczona intruckja wielowarunkowa (warunki pozwalaja tylko ana sprawdzenia konkretnej wartosci zmiennej)
+        SKŁADNIA:
+            switch(zmienna){ 
+                case wartosc1:
+                    intrukcje gdy zmienna ma wartosc rowna wartosc1
+                    break;
+                case wartosc2:
+                    intrukcje gdy zmienna ma wartosc rowna wartosc2
+                    break;
+                ...
+                default:
+                    intrukcje gdy zmienna nie będzie miała żadnej z powyzej zdefniowanych wartosci
+            }
+        */
+       
+       document.write("<hr>");
+       var ocena = 5;
+       switch(ocena){
+        case 6:
+            document.write("kochany synus");
+            document.write("<br>");
+            document.write("Na pewno zrzynałeś");
+            break;
+        case 5: 
+            document.write("Super");
+            break;
+        case 4:
+            document.write("Dobrze");
+            break;
+        case 3:
+            document.write("Nawet ");
+            break;
+        case 2: 
+            document.write("Dobrze ze nie jeden");
+            break;
+        case 1: 
+            document.write("Popraw");
+            break;
+        default:
+            document.write("Podaj poprawną wartość ...");
+            break;
+       }
+       // Ćweicznie zdenifuj zmienna liczbową i sprawdż czy znajude się w przedziale <12...67) zdanie wykonaj na  dwa spososby warunkowe i klasczna 
+       document.write("<hr>");
+       wartosc = 12;
+        if(wartosc>12 && wartosc<67){
+             document.write("Wartosc wystepuje w przedziale ");
+        }
+        else{
+            document.write("Wartosc nie nalezy do przedzialu ");
+        }
+       // Ćwiczenie druge za pomocą wyrażenia warunkowego sprawdz czy utworzona wczesniej liczba jest dodatnia 
+       document.write("<hr>");
+       wartosc = 12;
+        if(wartosc>0){
+             document.write("Wartosc jest dodatnia");
+        }
+        else{
+            document.write("Wartosc jest ujemna ");
+        }
+        //////////////////////////////////////////////////////////////////////////////
+        var x = 5;
+        var y = 12;
+        var z = 532;
+        var największa;
+        if(x > y) największa = x; else największa =y;
+        if(największa < z) największa = z;
+        document.write(największa);
+       // Ćwiczenie 3 zdefnijuj zmienna zawierajca model  iPhone'a i wypisz na ekran , któa  to generacja , wykorzystaj switch 
+       document.write("<hr>");
+       var model = iPhoneX;
+       switch(model){
+        case iPhoneX:
+            document.write("3 listopada 2017");
+            break;
+        case iPhoneXr: 
+            document.write("12 września 2018");
+            break;
+        case iPhoneXs:
+            document.write("12 września 2018");
+            break;
+        case iPhoneXsMax:
+            document.write("12 września 2018 ");
+            break;
+        case iPhone11: 
+        case iPhone11Pro: 
+        case iPhone11ProMax: 
+            document.write("11 września 2019");
+            break;
+        case iPhone12: 
+            document.write(" 23 października 2020");
+            break;
+        default:
+            document.write("Podaj poprawną wartość ...");
+            break;
+       }
+       document.write("<hr>");
+       //Zdefiniuj trzy zmienne liczbowe i na ekran wypisz największąz nich.
+    var arr = [];
+    arr.push('c', 'd', 'a',);
+    arr.sort();
+    console.log(arr[2]);
+       //Zdefiniuj współczninik funkcji liniowej i sprawdz czy jest rosnąca ,stała czy malejąca y=ax+b
+       document.write("<hr>");
+    var x =3;
+    if(x<0){document.write("Funkcja jest malejaca ");}
+    else if(x==0) {document.write("funkcja jest stala ");}
+    else if(x>0){ document.write("funckja jest malejaca ");}
+    else{document.write("wprowadz poprawne dane ");}
+//////////////////
+var a = 4;
+var b = 4;
+    </script>
+</body>
+</html>
