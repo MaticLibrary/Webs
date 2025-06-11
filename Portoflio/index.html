@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matic-Dev</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav id="menu">
+        <button class="menu-btn active" onclick="scrollToSection('home')">Home</button>
+        <button class="menu-btn" onclick="scrollToSection('about')">About</button>
+        <button class="menu-btn" onclick="scrollToSection('portfolio')">Portfolio</button>
+        <button class="menu-btn" onclick="scrollToSection('contact')">Contact</button>
+    </nav>
+    
+    <section id="home" class="main-section">
+        <h1>Strony internetowe <span class="highlight">Matic-Dev</span>!</h1>
+        <p>
+            Jestem studentem Informatyki i zrobię dla Ciebie stronę internetową.<br>
+            Poza stronami internetowymi zajmuję się również tworzeniem aplikacji webowych, które są nowoczesne i responsywne.<br>
+            Jeśli potrzebujesz pomocy w tworzeniu strony internetowej lub aplikacji webowej, skontaktuj się ze mną!
+        </p>
+    </section>
+    
+    <section id="about" class="main-section">
+        <h2>O mnie</h2>
+        <p>
+            Nazywam się Robert Kłusek. Obecnie jestem studentem i w międzyczasie chętnie wykonam dla Ciebie stronę internetową lub zajmę się automatyzacją w Twojej firmie.
+        </p>
+        <p>Moje umiejętności obejmują:</p>
+        <ul>
+            <li>HTML, CSS, JavaScript (strony internetowe)</li>
+            <li>React, Vue.js (strony internetowe / aplikacje webowe)</li>
+            <li>PHP, MySQL (bazy danych, automatyzacja)</li>
+            <li>C++, Java (proste aplikacje interfejsowe)</li>
+        </ul>
+    </section>
+
+    <section id="portfolio" class="main-section">
+        <h2>Portfolio</h2>
+        <div class="portfolio-grid">
+            <a href="https://rafelectricalservice.com/index.html" target="_blank" class="portfolio-item">
+                <img src="RAF.png" alt="Projekt 1">
+                <div class="portfolio-title">Strona typu wizytówka</div>
+            </a>
+            <a href="" target="_blank" class="portfolio-item">
+                <img src="images/project2.jpg" alt="Projekt 2">
+                <div class="portfolio-title">Projekt 2</div>
+            </a>
+            <a href="" target="_blank" class="portfolio-item">
+                <img src="images/project3.jpg" alt="Projekt 3">
+                <div class="portfolio-title">Projekt 3</div>
+            </a>
+             <a href="" target="_blank" class="portfolio-item">
+                <img src="images/project3.jpg" alt="Projekt 3">
+                <div class="portfolio-title">Projekt 3</div>
+            </a>
+             <a href="" target="_blank" class="portfolio-item">
+                <img src="images/project3.jpg" alt="Projekt 3">
+                <div class="portfolio-title">Projekt 4</div>
+            </a>
+        </div>
+    </section>
+
+    <section id="contact" class="main-section">
+        <h2>Kontakt</h2>
+        <p>Email: <a href="mailto:matic.dev.office@gmail.com">matic.dev.office@gmail.com</a></p>
+        <p>Telefon: 532 744 857</p>
+        <p>GitHub: <a href="https://github.com/MaticLibrary" target="_blank">MaticLibrary</a></p>
+    </section>
+
+    <footer>
+        &copy; <span id="year"></span> Matic-Dev. Wszystkie prawa zastrzeżone.
+    </footer>
+
+    <script>
+        // Smooth scroll to section
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Highlight active menu button
+        const sections = document.querySelectorAll('.main-section');
+        const menuBtns = document.querySelectorAll('.menu-btn');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 80;
+                if (pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            menuBtns.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('onclick').includes(current)) {
+                    btn.classList.add('active');
+                }
+            });
+        });
+
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
